@@ -1,0 +1,9561 @@
+//No notes this time because I'm lazy.
+//< Internals
+Function 0 2 0
+CallNative "NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME" 0 0
+Call @Main_
+Return 0 0
+
+:Main_
+Function 0 2 0
+//< Statics
+//< Table 1
+//Static: Current sub-menu (Integer)
+push_0
+StaticSet1 1
+//Static: Current option (Integer)
+fPush_1.0
+StaticSet1 2
+//Static: Number of options in sub-menu (Float)
+fPush_1.0
+StaticSet1 3
+//Static: Y coordinate of option highlight (Float)
+fPush 0.179
+StaticSet1 4
+//Static: Y coordinate of background (Float)
+fPush 0
+StaticSet1 5
+//Static: Length of background (Float)
+fPush 0
+StaticSet1 6
+//Static: Y coordinate of options (Float)
+fPush 0
+StaticSet1 7
+//Static: Last sub-menu (Integer)
+push_1
+StaticSet1 8
+//Static: Temporary Storage (Integer)
+push_0
+StaticSet1 12
+//Do not add any more to static1. There is a strange bug that will mess up any statics you add past 8. Use static2
+//>
+//< Table 2
+//Static 432: Y coordinate of info box (Float)
+//Static 433: Y coordinate of info text (Float)
+//Static: Red level for background color (RBG)
+push 434
+StaticSet2 434
+//Static: Green level for background color (RGB)
+push 0
+StaticSet2 435
+//Static: Blue level for background color (RGB)
+push 0
+StaticSet2 436
+//Static: Secondary text centered status (Boolean)
+push_1
+StaticSet2 437
+//Static: X coordinate of secondary text (Float)
+fPush 0.145
+StaticSet2 438
+//Static: Heat vision status (Boolean)
+push_0
+StaticSet2 439
+//Static: Night vision status (Boolean)
+push_0
+StaticSet2 440
+//Vehicle Godmode
+push_0
+StaticSet2 442
+//Slow Motion
+push_0
+StaticSet2 800
+//Static 463: all 8 bits are used as flags for looped functions (super jump, explosive melee, explosive bullets, etc)
+//Static 464: bits used as flags for toggles
+
+//Static 465: Teleport X Coord
+//Static 466: Teleport Y Coord
+//Static 467: Teleport Z Coord
+
+//Static 468: Used in Request Control of Entity
+// Player Dev Tees Static
+push_1
+StaticSet2 484
+// Vehicle Invincibility Static
+push_0
+StaticSet2 472
+// ModShop Doors Remove All Status Static
+push_0
+StaticSet2 488
+// Vehicle Invisibility Static
+push_0
+StaticSet2 470
+// Vehicle Engine Static
+push_0
+StaticSet2 469
+// Vehicle Interior Light Static
+push_0
+StaticSet2 473
+// Vehicle Slidy Tyres Static
+push_0
+StaticSet2 477
+// Vehicle Freeze Static
+push_0
+StaticSet2 487
+// Vehicle Gravity Static
+push_0
+StaticSet2 480
+//Static: Super Swim Status
+push_0
+StaticSet2 493
+// Vehicle Neon colour Statics
+// R
+push_0
+StaticSet2 489
+// G
+push_0
+StaticSet2 490
+// B
+push_0
+StaticSet2 491
+//Static: Tunables Christmas Snow Status
+push_0
+StaticSet2 492
+//Static: Player Invisibility Status
+push_0
+StaticSet2 494
+//Static: Current Vehicle Speed for SuprKar
+push_0
+StaticSet2 495
+// WAYPOINT TELEPORT TEST Statics
+push_0
+StaticSet2 497
+push_0
+StaticSet2 498
+push_0
+StaticSet2 499
+push_0
+StaticSet2 485
+//Static: Current Character Selected for Stat Manager Custom
+push_0
+StaticSet2 500
+// LOOP VEHICLE ROCKETS Statics
+//Vehicle
+push_0
+StaticSet2 501
+//Others>> Static2 508 to Static2 525
+//Static: Kaboom Gun Statics
+push_0
+StaticSet2 504
+push_0
+StaticSet2 505
+push_0
+StaticSet2 506
+push_0
+StaticSet2 507
+//Static: AddTitle Font
+push_7
+StaticSet2 400
+//Static: AddOption Font
+push_4
+StaticSet2 401
+//Static: AddInfobox Font
+push_7
+StaticSet2 402
+//Static: XYZH Coords Font
+push_4
+StaticSet2 403
+
+//Static2 404, 406, 407, 408, 409: Water Wheel Object
+//>
+//>
+//Static 443: Last highlighted option (Float)
+//Static 444: Last Y coordinate of option highlight (Float)
+//>
+//>
+//< Main Loop
+//Static 443: Last highlighted option (Float)
+//Static 444: Last Y coordinate of option highlight (Float)
+//>
+//>
+//< Bit Stuff
+//Super Run
+pStatic1 10
+Push1 11
+CallNative "CLEAR_BIT" 2 0
+//Super Jump
+pStatic1 10
+Push1 12
+CallNative "CLEAR_BIT" 2 0
+//Car Super Speed
+pStatic1 10
+Push1 13
+CallNative "CLEAR_BIT" 2 0
+//Wash Player
+pStatic1 10
+Push1 14
+CallNative "CLEAR_BIT" 2 0
+//Car Jump
+pStatic1 10
+Push1 15
+CallNative "CLEAR_BIT" 2 0
+//Fix Car Loop
+pStatic1 10
+Push1 16
+CallNative "CLEAR_BIT" 2 0
+//Forcefeild
+pStatic1 10
+Push1 17
+CallNative "CLEAR_BIT" 2 0
+//Rainbow Vehicle
+pStatic1 10
+Push1 18
+CallNative "CLEAR_BIT" 2 0
+//Explosion On Player Loop
+pStatic1 10
+Push1 19
+CallNative "CLEAR_BIT" 2 0
+//Water On Player Loop
+pStatic1 10
+Push1 20
+CallNative "CLEAR_BIT" 2 0
+//Flame on Player Loop
+pStatic1 10
+Push1 21
+CallNative "CLEAR_BIT" 2 0
+//40K Drop
+pStatic1 10
+Push1 22
+CallNative "CLEAR_BIT" 2 0
+//Clear Tasks Loop
+pStatic1 10
+Push1 23
+CallNative "CLEAR_BIT" 2 0
+//Attach Beach Fire Loop
+pStatic1 10
+Push1 25
+CallNative "CLEAR_BIT" 2 0
+//Attach Crap Loop
+pStatic1 10
+Push1 26
+CallNative "CLEAR_BIT" 2 0
+//Clone Loop
+pStatic1 10
+Push1 24
+CallNative "CLEAR_BIT" 2 0
+//Delete Vehicle Loop
+pStatic1 10
+Push1 27
+CallNative "CLEAR_BIT" 2 0
+//God Mode Loop
+pStatic1 10
+Push1 28
+CallNative "CLEAR_BIT" 2 0
+//Vehicle Invincibility Loop
+pStatic1 10
+Push1 29
+CallNative "CLEAR_BIT" 2 0
+//Invisibility Loop
+pStatic1 10
+Push1 30
+CallNative "CLEAR_BIT" 2 0
+//Flicker Mode Loop
+pStatic1 10
+Push1 31
+CallNative "CLEAR_BIT" 2 0
+//Vehicle Instant Brake
+pStatic1 10
+Push1 45
+CallNative "CLEAR_BIT" 2 0
+//Slow-mo
+pStatic1 10
+Push1 33
+CallNative "CLEAR_BIT" 2 0
+//FlyMod Test
+pStatic1 10
+Push1 50
+//>
+//< Main Loop
+:MainLoop_
+push_0
+CallNative "WAIT" 1 0
+Call @OtherLoops_
+Call @CheckPauseMenu_
+StaticGet1 1
+//To add a submenu, add another option to the main loop and add a call to your submenu.
+//If you want it to be a normal submenu, make it jump to @NormalMenuActions_ after calling it. If you want it to be a console jump to @ConsoleActions_.
+Switch [0=@CallClosedMenuStuff_][1=@CallMainMenu_][2=@CallSettingsSecondaryColor_][3=@CallSubmenu1_][4=@CallSubmenu2_][5=@CallSubmenu3_][6=@CallSubmenu4_][7=@CallPlayersSub_][8=@CallPlayersSubAMenu_][9=@CallNetwork_PlayerSub_][10=@CallNetwork_ExplosionSub][11=@CallNetwork_TeleportOptions_][12=@CallOnlinePlayersA_TeleportToCoords_][13=@CallNetwork_Explosion2Sub][14=@CallNetwork_Explosion3Sub][15=@CallPersonalVehicle_][16=@CallNetwork_VehicleSub][17=@CallNetwork_VehicleSub2][18=@CallNetwork_NiceandNaughty][19=@CallNetwork_NaughtyOptions][20=@CallNetwork_ObjectsAndAttachments][21=@CallNetwork_Attachments][22=@CallStats_][23=@CallRankP2_][24=@CallCashOptions_][25=@CallUnlockOptions_][26=@CallCheaterOptions_]
+:CallClosedMenuStuff_
+Call @ClosedMenuStuff_
+Jump @MainLoop_
+:CallMainMenu_
+Call @MainMenu_
+Jump @NormalMenuActions_
+:CallSettingsSecondaryColor_
+Call @SettingsSecondaryColor_
+Jump @NormalMenuActions_
+:CallSubmenu1_
+Call @Submenu1_
+Jump @NormalMenuActions_
+:CallSubmenu2_
+Call @Submenu2_
+Jump @NormalMenuActions_
+:CallSubmenu3_
+Call @Submenu3_
+Jump @NormalMenuActions_
+:CallSubmenu4_
+Call @Submenu4_
+Jump @NormalMenuActions_
+:CallPlayersSub_
+Call @PlayersSub_
+Jump @NormalMenuActions_
+:CallPlayersSubAMenu_
+Call @PlayersSubAMenu_
+Jump @NormalMenuActions_
+:CallNetwork_PlayerSub_
+Call @Network_PlayerSub_
+Jump @NormalMenuActions_
+:CallNetwork_ExplosionSub
+Call @Network_ExplosionSub
+Jump @NormalMenuActions_
+:CallNetwork_TeleportOptions_
+Call @Network_TeleportOptions_
+Jump @NormalMenuActions_
+:CallOnlinePlayersA_TeleportToCoords_
+Call @OnlinePlayersA_TeleportToCoords_
+Jump @NormalMenuActions_
+:CallNetwork_Explosion2Sub
+Call @Network_Explosion2Sub
+Jump @NormalMenuActions_
+:CallNetwork_Explosion3Sub
+Call @Network_Explosion3Sub
+Jump @NormalMenuActions_
+:CallPersonalVehicle_
+Call @PersonalVehicle_
+Jump @NormalMenuActions_
+:CallNetwork_VehicleSub
+Call @Network_VehicleSub
+Jump @NormalMenuActions_
+:CallNetwork_VehicleSub2
+Call @Network_VehicleSub2
+Jump @NormalMenuActions_
+:CallNetwork_NiceandNaughty
+Call @Network_NiceandNaughty
+Jump @NormalMenuActions_
+:CallNetwork_NaughtyOptions
+Call @Network_NaughtyOptions
+Jump @NormalMenuActions_
+:CallNetwork_ObjectsAndAttachments
+Call @Network_ObjectsAndAttachments
+Jump @NormalMenuActions_
+:CallNetwork_Attachments
+Call @Network_Attachments
+Jump @NormalMenuActions_
+:CallStats_
+Call @Stats_
+Jump @NormalMenuActions_
+:CallRankP2_
+Call @RankP2_
+Jump @NormalMenuActions_
+:CallCashOptions_
+Call @CashOptions_
+Jump @NormalMenuActions_
+:CallUnlockOptions_
+Call @UnlockOptions_
+Jump @NormalMenuActions_
+:CallCheaterOptions_
+Call @CheaterOptions_
+Jump @NormalMenuActions_
+:NormalMenuActions_
+Call @OpenMenuStuff_
+Jump @MainLoop_
+:ConsoleActions_
+Call @ConsoleStuff_
+Jump @MainLoop_
+Return 0 0
+//>
+
+//> Other Loops
+:OtherLoops_
+Function 0 2 0
+StaticGet1 10
+Push1 11
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @GodModeLoop_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+Not
+JumpFalse @GodModeLoop_
+push_2
+Push1 177
+CallNative "IS_CONTROL_PRESSED" 2 1
+JumpFalse @GodModeLoop_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+fPush_0.0
+fPush 34028230000000
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_1
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+push_2
+Push1 174
+CallNative "IS_DISABLED_CONTROL_JUST_RELEASED" 2 1
+JumpFalse @GodModeLoop_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "FREEZE_ENTITY_POSITION" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "FREEZE_ENTITY_POSITION" 2 0
+:GodModeLoop_
+StaticGet1 10
+Push1 28
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @GhostModeLoop_
+CallNative "PLAYER_ID" 0 1
+push_1
+CallNative "SET_PLAYER_INVINCIBLE" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+Dup
+Dup
+push_0
+CallNative "SET_PED_CAN_RAGDOLL" 2 0
+push_0
+CallNative "SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT" 2 0
+push_0
+CallNative "SET_PED_CAN_BE_KNOCKED_OFF_VEHICLE" 2 0
+:GhostModeLoop_
+StaticGet1 10
+Push1 31
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoops_VehicleBrake
+CallNative "PLAYER_PED_ID" 0 1
+Dup
+CallNative "IS_ENTITY_VISIBLE" 1 1
+Not
+CallNative "SET_ENTITY_VISIBLE" 2 0
+:OtherLoops_VehicleBrake
+StaticGet1 10
+Push1 45
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsFlickerVehicle_
+push_2
+Push1 177
+CallNative "IS_CONTROL_PRESSED" 2 1
+JumpFalse @OtherLoopsFlickerVehicle_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @OtherLoopsFlickerVehicle_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush_0.0
+CallNative "SET_VEHICLE_FORWARD_SPEED" 2 0
+:OtherLoopsFlickerVehicle_
+StaticGet1 10
+Push1 32
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsSuperJump_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @OtherLoopsSuperJump_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+Dup
+CallNative "IS_ENTITY_VISIBLE" 1 1
+JumpFalse @OtherLoopsSuperJump_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+Not
+CallNative "SET_ENTITY_VISIBLE" 2 0
+Jump @EndOtherLoops_
+:OtherLoopsSuperJump_
+StaticGet1 10
+Push1 12
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsWashPlayer_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+Not
+JumpFalse @OtherLoopsWashPlayer_
+push_2
+Push1 183
+CallNative "IS_DISABLED_CONTROL_PRESSED" 2 1
+JumpFalse @OtherLoopsWashPlayer_
+push_2
+Push1 179
+CallNative "IS_DISABLED_CONTROL_PRESSED" 2 1
+JumpFalse @OtherLoopsWashPlayer_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+fPush_0.0
+fPush_0.0
+fPush_2.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_1
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+:OtherLoopsWashPlayer_
+StaticGet1 10
+Push1 14
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsCarSuperSpeed_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_PED_MAX_HEALTH" 1 1
+CallNative "SET_ENTITY_HEALTH" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "PLAYER_ID" 0 1
+CallNative "GET_PLAYER_MAX_ARMOUR" 1 1
+CallNative "SET_PED_ARMOUR" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "CLEAR_PED_BLOOD_DAMAGE" 1 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "RESET_PED_VISIBLE_DAMAGE" 1 0‏
+:OtherLoopsCarSuperSpeed_
+StaticGet1 10
+Push1 13
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @VehicleInvincibility_
+CallNative "IS_PAUSE_MENU_ACTIVE" 0 1
+Not
+JumpFalse @VehicleInvincibility_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @VehicleInvincibility_
+push_2
+Push1 184
+CallNative "IS_CONTROL_PRESSED" 2 1
+JumpFalse @VehicleInvincibility_
+push_2
+Push1 179
+CallNative "IS_CONTROL_PRESSED‏" 2 1
+JumpFalse @VehicleInvincibility_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+fPush_0.0
+fPush 200
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+:VehicleInvincibility_
+StaticGet1 10
+Push1 29
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsCarSuperJump_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+CallNative "SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+CallNative "SET_VEHICLE_TYRES_CAN_BURST" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+CallNative "SET_ENTITY_CAN_BE_DAMAGED" 2 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_1
+push_1
+CallNative "SET_ENTITY_INVINCIBLE" 3 0
+:OtherLoopsCarSuperJump_
+StaticGet1 10
+Push1 15
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsVehicleFixed_
+CallNative "IS_PAUSE_MENU_ACTIVE" 0 1
+Not
+JumpFalse @OtherLoopsVehicleFixed_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @OtherLoopsVehicleFixed_
+push_2
+Push1 184
+CallNative "IS_CONTROL_PRESSED‏" 2 1
+JumpFalse @OtherLoopsVehicleFixed_
+push_2
+Push1 205
+CallNative "IS_CONTROL_PRESSED" 2 1
+JumpFalse @OtherLoopsVehicleFixed_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+fPush_0.0
+fPush_0.0
+fPush 433
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+:OtherLoopsVehicleFixed_
+StaticGet1 10
+Push1 16
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsForcefeild_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @OtherLoopsForcefeild_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+CallNative "SET_VEHICLE_FIXED" 1 0
+:OtherLoopsForcefeild_
+StaticGet1 10
+Push1 17
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsRainbowCar_
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push 29
+fPush 20
+push_0
+push_1
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:OtherLoopsRainbowCar_
+StaticGet1 10
+Push1 18
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsExplosionOnPlayerLoop_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+CallNative "SET_VEHICLE_COLOURS" 3 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+CallNative "SET_VEHICLE_EXTRA_COLOURS" 3 0
+:OtherLoopsExplosionOnPlayerLoop_
+StaticGet1 10
+Push1 19
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsWaterOnPlayerLoop_
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push 29
+fPush 400
+fPush_1.0
+fPush_0.0
+fPush 340282300000000000
+CallNative "ADD_EXPLOSION" 8 0
+:OtherLoopsWaterOnPlayerLoop_
+StaticGet1 10
+Push1 20
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @OtherLoopsFlameOnPlayerLoop_
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push 13
+fPush 50
+fPush_1.0
+fPush_0.0
+fPush 5
+CallNative "ADD_EXPLOSION" 8 0
+:OtherLoopsFlameOnPlayerLoop_
+StaticGet1 10
+Push1 21
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @ClearTasksImmedietelyLoop_
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push 30
+fPush 50
+fPush_1.0
+fPush_0.0
+fPush 5
+CallNative "ADD_EXPLOSION" 8 0
+:ClearTasksImmedietelyLoop_
+StaticGet1 10
+Push1 23
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @DeleteVehicleOtherLoop_
+StaticGet2 241
+CallNative "CLEAR_PED_TASKS_IMMEDIATELY" 1 
+:DeleteVehicleOtherLoop_
+StaticGet1 10
+Push1 27
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @84kDropLoop_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @84kDropLoop_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticSet2 65
+StaticGet2 65
+push_1
+push_1
+CallNative "SET_ENTITY_AS_MISSION_ENTITY" 3 0
+pStatic2 65
+CallNative "DELETE_VEHICLE" 1 0
+push_0
+CallNative "WAIT" 1 0
+:84kDropLoop_
+StaticGet1 10
+Push1 22
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @EndOtherLoops_
+push_0
+CallNative "WAIT" 1 0
+StaticGet2 460
+Add1 1
+StaticSet2 460
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 4000000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+Jump @EndOtherLoops_
+:EndOtherLoops_
+Return 0 0
+
+//>
+//< Open Menu Stuff
+// No reason to mess with this stuff
+:OpenMenuStuff_
+Function 0 2 0
+Call @DrawBar_
+Call @DisableControls_
+//Button: Up
+push_2
+Push 202
+CallNative "IS_DISABLED_CONTROL_JUST_PRESSED" 2 1
+push_1
+JumpEQ @MenuUp_
+//Button: Down
+push_2
+Push 203
+CallNative "IS_DISABLED_CONTROL_JUST_PRESSED" 2 1
+push_1
+JumpEQ @MenuDown_
+//Button: B
+push_2
+Push 195
+CallNative "IS_DISABLED_CONTROL_JUST_PRESSED" 2 1
+push_1
+JumpEQ @GoBackSubmenu_
+Jump @EndOpenMenuStuff_
+:GoBackSubmenu_
+PushString "BACK"
+Call @PlayFrontendSound_
+StaticGet1 1
+push_1
+JumpEQ @CloseDownMenu_
+StaticGet1 8
+StaticSet1 1
+StaticGet2 443
+StaticSet1 2
+StaticGet2 444
+StaticSet1 4
+Jump @EndOpenMenuStuff_
+:MenuUp_
+StaticGet1 2
+fPush_1.0
+JumpEQ @SwapToBottom_
+StaticGet1 2
+fPush_1.0
+fSub
+StaticSet1 2
+StaticGet1 4
+fPush 0.04
+fSub
+StaticSet1 4
+PushString "NAV_UP_DOWN"
+Call @PlayFrontendSound_
+Jump @EndOpenMenuStuff_
+:SwapToBottom_
+//Calculate Y position
+StaticGet1 3
+fPush 0.04
+fMul
+fPush 0.139
+fAdd
+StaticSet1 4
+StaticGet1 3
+StaticSet1 2
+PushString "NAV_UP_DOWN"
+Call @PlayFrontendSound_
+Jump @EndOpenMenuStuff_
+:MenuDown_
+StaticGet1 2
+StaticGet1 3
+JumpEQ @SwapToTop_
+StaticGet1 2
+fPush_1.0
+fAdd
+StaticSet1 2
+StaticGet1 4
+fPush 0.04
+fAdd
+StaticSet1 4
+PushString "NAV_UP_DOWN"
+Call @PlayFrontendSound_
+Jump @EndOpenMenuStuff_
+:SwapToTop_
+fPush 0.179
+StaticSet1 4
+fPush_1.0
+StaticSet1 2
+PushString "NAV_UP_DOWN"
+Call @PlayFrontendSound_
+Jump @EndOpenMenuStuff_
+:CloseDownMenu_
+push_2
+CallNative "ENABLE_ALL_CONTROL_ACTIONS" 1 0
+PushString "BACK"
+Call @PlayFrontendSound_
+push_0
+StaticSet1 1
+:EndOpenMenuStuff_
+Return 0 0
+//>
+
+//< Close Menu Stuff
+// No reason to mess with this stuff
+:ClosedMenuStuff_
+Function 0 2 0
+//Button: LB
+push_2
+Push 181
+CallNative "IS_CONTROL_PRESSED" 2 1
+push_1
+JumpEQ @MonitorButtonX_
+Jump @EndCloseMenuStuff_
+:MonitorButtonX_
+//DPAD:Right 
+push_2
+Push 205
+CallNative "IS_CONTROL_PRESSED" 2 1
+push_1
+JumpEQ @OpenUpMenu_
+Jump @EndCloseMenuStuff_
+:OpenUpMenu_
+PushString "SELECT"
+Call @PlayFrontendSound_
+push_1
+StaticSet1 1
+push_1
+StaticSet1 8
+fPush_1.0
+StaticSet1 2
+fPush 0.179
+StaticSet1 4
+:EndCloseMenuStuff_
+Return 0 0
+
+:ChangeSubmenu_
+Function 0 2 0
+StaticGet1 2
+StaticSet2 443
+StaticGet1 4
+StaticSet2 444
+fPush_1.0
+StaticSet1 2
+fPush 0.179
+StaticSet1 4
+Return 0 0
+//>
+
+//< Console
+// No reason to mess with this stuff
+//< Console Actions
+
+:ConsoleStuff_
+Function 0 2 0
+fPush 15
+StaticSet1 3
+Call @DrawBackground_
+Call @DisableControls_
+//Button B
+push_2
+Push 195
+CallNative "IS_DISABLED_CONTROL_JUST_PRESSED" 2 1
+push_1
+JumpEQ @ConsoleGoBackSubmenu_
+Jump @EndConsoleStuff_
+:ConsoleGoBackSubmenu_
+PushString "BACK"
+Call @PlayFrontendSound_
+StaticGet1 8
+StaticSet1 1
+StaticGet2 443
+StaticSet1 2
+StaticGet2 444
+StaticSet1 4
+:EndConsoleStuff_
+Return 0 0
+//>
+
+//< StatSet
+:StatSetInt_
+Function 2 2 0
+getF1 0
+CallNative "GET_HASH_KEY" 1 1
+getF1 1
+push_1
+CallNative "STAT_SET_INT" 3 1
+Drop
+Return 2 0
+:StatSetBool_
+Function 2 2 0
+getF1 0
+CallNative "GET_HASH_KEY" 1 1
+getF1 1
+push_1
+CallNative "STAT_SET_BOOL" 3 1
+Drop
+Return 2 0
+:StatSetFloat_
+Function 2 2 0
+getF1 0
+CallNative "GET_HASH_KEY" 1 1
+getF1 1
+push_1
+CallNative "STAT_SET_FLOAT" 3 1
+Drop
+Return 2 0
+//>
+//>
+:StatSetIntStatic23_
+Function 2 2 0
+StaticGet1 23
+getF1 0
+Call @AddStrings_
+CallNative "GET_HASH_KEY" 1 1
+getF1 1
+push_1
+CallNative "STAT_SET_INT" 3 1
+Drop
+Return 2 0
+
+//< String Stuff
+:AddConsoleEntry_
+Function 2 2 0
+getF1 0
+fPush 0.03
+fMul
+fPush 0.13
+fAdd
+StaticSet1 7
+Call @StringBase_
+PushString "STRING"
+CallNative "UNK_3E35563E" 1 0
+getF1 1
+CallNative "UNK_27A244D8" 1 0
+fPush 0.06
+StaticGet1 7
+CallNative "UNK_6F8350CE" 2 0
+Return 2 0
+//>
+//>
+
+//< Utilities
+:CheckAPressed_
+Function 0 2 0
+push_2
+Push 193
+CallNative "IS_DISABLED_CONTROL_JUST_PRESSED" 2 1
+Return 0 1
+
+//< Check Pause Menu
+:CheckPauseMenu_
+Function 0 3 0
+CallNative "IS_PAUSE_MENU_ACTIVE" 0 1
+JumpFalse @CheckPauseMenu_NoProb
+push_0
+StaticSet1 1
+Call @ChangeSubmenu_
+:CheckPauseMenu_NoProb
+Return 0 0
+//>
+:Label_61
+Function 1 4 0
+PushString "STRING"
+CallNative "UNK_574EE85C" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+push_0
+push_1
+CallNative "UNK_08F7AF78" 2 1
+Drop
+Return 1 0
+
+
+Function 2 6 0
+PushString "TWOSTRINGS"
+CallNative "UNK_574EE85C" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+getF1 1
+CallNative "UNK_27A244D8" 1 0
+push_0
+push_1
+CallNative "UNK_08F7AF78" 2 1
+Drop
+Return 2 0
+
+:PlayFrontendSound_
+Function 1 2 0
+push_-1
+getF1 0
+PushString "HUD_FRONTEND_DEFAULT_SOUNDSET"
+CallNative "PLAY_SOUND_FRONTEND" 3 0
+Return 1 0
+
+//< Disable Controls
+// No reason to mess with this stuff
+:DisableControls_
+Function 0 2 0
+//Function by XBLToothpik
+CallNative "HIDE_HELP_TEXT_THIS_FRAME" 0 0
+push_0
+CallNative "SET_CINEMATIC_BUTTON_ACTIVE" 1 0
+push_0
+push_0
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 93
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 72
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 76
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 179
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_2
+Push 177
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_2
+Push 178
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_0
+Push 49
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 164
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_2
+Push 165
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_2
+Push 177
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 178
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 166
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 167
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 164
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_2
+Push 165
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+Push 10
+CallNative "HIDE_HUD_COMPONENT_THIS_FRAME" 1 0
+push_6
+CallNative "HIDE_HUD_COMPONENT_THIS_FRAME" 1 0
+push_7
+CallNative "HIDE_HUD_COMPONENT_THIS_FRAME" 1 0
+Push 9
+CallNative "HIDE_HUD_COMPONENT_THIS_FRAME" 1 0
+Push 8
+CallNative "HIDE_HUD_COMPONENT_THIS_FRAME" 1 0
+push_2
+Push 166
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_2
+Push 167
+CallNative "SET_INPUT_EXCLUSIVE" 2 0
+push_0
+Push 40
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 139
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 140
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 141
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 142
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 143
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 144
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 145
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 146
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 147
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 17
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 18
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 53
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 54
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 123
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 124
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 126
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 48
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 70
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 79
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 52
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 46
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 55
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 76
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 25
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 93
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 106
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 149
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 148
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 150
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 151
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+push_0
+Push 22
+CallNative "DISABLE_CONTROL_ACTION" 2 0
+Return 0 0
+//>
+//< OnScreenKeyboard
+:PromptUser_
+Function 0 2 0
+push_0
+PushString "PM_NAME_CHALL"
+PushString ""
+PushString ""
+PushString ""
+PushString ""
+PushString ""
+Push 225
+CallNative "DISPLAY_ONSCREEN_KEYBOARD" 8 0
+Push 100
+CallNative "WAIT" 1 0
+:CheckResponse_
+push_0
+CallNative "WAIT" 1 0
+CallNative "IS_SYSTEM_UI_BEING_DISPLAYED" 0 1
+JumpFalse @ReturnResponse_
+Jump @CheckResponse_
+:ReturnResponse_
+CallNative "GET_ONSCREEN_KEYBOARD_RESULT" 0 1
+Return 0 1
+//>
+//>
+//< Get Player Name
+:GetPlayerName_
+Function 1 2 0
+getF1 0
+CallNative "NETWORK_IS_PLAYER_ACTIVE" 1 1
+JumpFalse @GetPlayerNameFalse_
+getF1 0
+CallNative "GET_PLAYER_NAME" 1 1
+Return 1 1
+:GetPlayerNameFalse_
+PushString "**Invalid**"
+Return 1 1
+:GetPlayerNameSctv_
+Function 1 2 0
+getF1 0
+CallNative "NETWORK_IS_PLAYER_ACTIVE" 1 1
+JumpFalse @GetPlayerNameFalseSctv_
+getF1 0
+CallNative "GET_PLAYER_NAME" 1 1
+Return 1 1
+:GetPlayerNameFalseSctv_
+PushString "~r~SCTV SLOT------------------"
+Return 1 1
+
+:MsgStuff_
+Function 2 3 0
+PushString "STRING"
+CallNative "UNK_F42C43C7" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+getF1 1
+push_1
+CallNative "UNK_38F82261" 2 0
+Return 2 0
+
+//< Print String Bottom Centre
+:PrintStringBottomCentre_
+Function 2 3 0
+PushString "STRING"
+CallNative "UNK_F42C43C7" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+getF1 1
+push_1
+CallNative "UNK_38F82261" 2 0
+Return 2 0
+//>
+//< Print bottom left
+:PrintBottomLeft_
+Function 1 4 0
+PushString "STRING"
+CallNative "UNK_574EE85C" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+push_0
+push_1
+CallNative "UNK_08F7AF78" 2 1
+Drop
+Return 1 0
+//>
+//< Find free car seat for teleporting into player vehicle
+:FindFreeCarSeat_
+Function 1 4 0
+getF1 0
+CallNative "GET_VEHICLE_MAX_NUMBER_OF_PASSENGERS" 1 1
+setF1 4
+push_-1
+setF1 3
+:FindFreeCarSeat_loop
+getF1 3
+getF1 4
+JumpGE @FindFreeCarSeat_end
+getF1 0
+getF1 3
+CallNative "IS_VEHICLE_SEAT_FREE" 2 1
+JumpFalse @FindFreeCarSeat_iter
+getF1 3
+Return 1 1
+:FindFreeCarSeat_iter
+getF1 3
+Add1 1
+setF1 3
+Jump @FindFreeCarSeat_loop
+:FindFreeCarSeat_end
+Push 368641790
+Return 0 0
+//>
+//< Request Control of Vehicle
+:RequestControlOfVeh_
+Function 1 2 0
+push_0
+StaticSet2 468
+getF1 0
+CallNative "NETWORK_REQUEST_CONTROL_OF_ENTITY" 1 1
+Not
+JumpFalse @RequestControlOfVehRet_
+:RequestControlOfVehHas_
+getF1 0
+CallNative "NETWORK_HAS_CONTROL_OF_ENTITY" 1 1
+push_0
+CallNative "WAIT" 1 0
+getF1 0
+CallNative "NETWORK_REQUEST_CONTROL_OF_ENTITY" 1 1
+Not
+JumpFalse @RequestControlOfVehRet_
+StaticGet2 468
+Add1 1
+StaticSet2 468
+StaticGet2 468
+Push 50
+Jump @RequestControlOfVehHas_
+:RequestControlOfVehRet_
+Return 1 0
+//>
+//>
+//>
+//< Print XYZH Coords
+:LoopMiscOpsXYZHCoords_DrawCoords
+Function 5 4 3
+getF1 0
+fPush 0.05000000
+fPush 0.10000000
+Call @LoopMiscOpsXYZHCoords_DrawFloat
+getF1 1
+fPush 0.05000000
+fPush 0.13000000
+Call @LoopMiscOpsXYZHCoords_DrawFloat
+getF1 2
+fPush 0.05000000
+fPush 0.16000000
+Call @LoopMiscOpsXYZHCoords_DrawFloat
+getF1 3
+fPush 0.05000000
+fPush 0.19000000
+Call @LoopMiscOpsXYZHCoords_DrawFloat
+Return 4 0
+
+:LoopMiscOpsXYZHCoords_DrawFloat
+Function 4 3 3
+Call @MiscOpsXYZHCoordsSetUpDraw_
+PushString "NUMBER"
+CallNative "UNK_3E35563E" 1 0
+getF1 0
+push_4
+CallNative "IS_PED_HIDING_NEAR_INDICATORLIGHTS" 2 0
+getF1 1
+getF1 2
+CallNative "UNK_6F8350CE" 2 0
+Return 3 0
+
+:LoopMiscOpsXYZHCoords_GetCoords
+Function 3 1 3
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+push_0
+CallNative "GET_ENTITY_COORDS" 2 3
+Return 1 3
+
+:MiscOpsXYZHCoordsSetUpDraw_
+Function 1 0 2
+StaticGet2 403
+CallNative "SET_TEXT_FONT" 1 0
+fPush 0.35
+fPush 0.35
+CallNative "SET_TEXT_SCALE" 2 0
+Push1 255
+Push1 255
+Push1 255
+Push1 255
+CallNative "SET_TEXT_COLOUR" 4 0
+fPush_0.0
+fPush_1.0
+CallNative "SET_TEXT_WRAP" 2 0
+push_0
+CallNative "SET_TEXT_CENTRE" 1 0
+push_0
+push_0
+push_0
+push_0
+push_0
+CallNative "SET_TEXT_DROPSHADOW" 5 0
+push_0
+push_0
+push_0
+push_0
+push_0
+CallNative "SET_TEXT_EDGE" 5 0
+Return 0 0
+//>
+//< Request Model
+:ChangeModel_
+Function 1 2 0
+getF1 0
+CallNative "REQUEST_MODEL" 1 0
+CallNative "PLAYER_ID" 0 1
+getF1 0
+CallNative "SET_PLAYER_MODEL" 2 0
+Return 1 0
+//:RequestModel_
+//Function 1 2 0
+//getF1 0
+//CallNative "REQUEST_MODEL" 1 0
+//:RequestModelStatus_
+//getF1 0
+//CallNative "HAS_MODEL_LOADED" 1 1
+//Not
+//JumpFalse @RequestModelRet_
+//:RequestModelUnableTo_
+//PushString "Unable to load model."
+//Call @PrintBottomLeft_
+//:RequestModelRet_
+//Return 1 0
+//>
+//< AddStrings_
+//Used in GetCurrentCharacter_ 
+:AddStrings_
+Function 2 2 0
+getF1 0
+pStatic2 100
+StrCopy 64
+getF1 1
+pStatic2 100
+StrAdd 64
+pStatic2 100
+Return 2 1
+//>
+//< String Stuff
+:StringBase_
+Function 0 2 0
+push_0
+CallNative "SET_TEXT_FONT" 1 0
+fPush 0.4
+fPush 0.4
+CallNative "SET_TEXT_SCALE" 2 0
+Push 255
+Push 255
+Push 255
+Push 255
+CallNative "SET_TEXT_COLOUR" 4 0
+fPush_0.0
+fPush_1.0
+CallNative "SET_TEXT_WRAP" 2 0
+push_0
+CallNative "SET_TEXT_CENTRE" 1 0
+push_0
+push_0
+push_0
+push_0
+push_0
+CallNative "SET_TEXT_DROPSHADOW" 5 0
+push_0
+push_0
+push_0
+push_0
+push_0
+CallNative "SET_TEXT_EDGE" 5 0
+CallNative "SET_TEXT_OUTLINE" 0 0
+Return 0 0
+
+:AddOption_
+Function 2 2 0
+getF1 0
+fPush 0.04
+fMul
+fPush 0.125
+fAdd
+StaticSet1 7
+Call @StringBase_
+PushString "STRING"
+CallNative "UNK_3E35563E" 1 0
+getF1 1
+CallNative "UNK_27A244D8" 1 0
+fPush 0.07
+StaticGet1 7
+CallNative "UNK_6F8350CE" 2 0
+Return 2 0
+
+:AddTitle_
+Function 1 2 0
+Call @StringBase_
+push_1
+CallNative "SET_TEXT_FONT" 1 0
+fPush 0.8
+fPush 0.8
+CallNative "SET_TEXT_SCALE" 2 0
+StaticGet2 437
+CallNative "SET_TEXT_CENTRE" 1 0
+PushString "STRING"
+CallNative "UNK_3E35563E" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+StaticGet2 438
+fPush 0.1
+CallNative "UNK_6F8350CE" 2 0
+Return 1 0
+//>
+
+//< Shader Stuff
+// No reason to mess with this stuff
+:DrawBackground_
+Function 0 2 0
+//< Options Background
+//Calculate Y coordinate
+StaticGet1 3
+fPush 0.04
+fMul
+fPush_2.0
+fDiv
+fPush 0.159
+fAdd
+StaticSet1 5
+//Calculate length
+StaticGet1 3
+fPush 0.04
+fMul
+StaticSet1 6
+fPush 0.145
+StaticGet1 5
+fPush 0.19
+StaticGet1 6
+Push3 0 0 205
+Push 35
+CallNative "DRAW_RECT" 8 0
+//>
+//< TitleBox
+fPush 0.145
+fPush 0.1175
+fPush 0.19
+fPush 0.083
+StaticGet2 434
+StaticGet2 435
+StaticGet2 436
+Push 35
+CallNative "DRAW_RECT" 8 0
+//>
+Return 0 0
+
+:AddInfoBox_
+Function 1 2 0
+//Calculate Y coordinate
+StaticGet1 3
+fPush 0.04
+fMul
+fPush 0.179
+fAdd
+StaticSet2 432
+fPush 0.145
+StaticGet2 432
+fPush 0.19
+fPush 0.04
+StaticGet2 434
+StaticGet2 435
+StaticGet2 436
+Push 35
+CallNative "DRAW_RECT" 8 0
+//Draw credits text
+StaticGet1 3
+fPush_1.0
+fAdd
+fPush 0.04
+fMul
+fPush 0.125
+fAdd
+StaticSet2 433
+Call @StringBase_
+fPush 0.35
+fPush 0.35
+CallNative "SET_TEXT_SCALE" 2 0
+StaticGet2 437
+CallNative "SET_TEXT_CENTRE" 1 0
+PushString "STRING"
+CallNative "UNK_3E35563E" 1 0
+getF1 0
+CallNative "UNK_27A244D8" 1 0
+StaticGet2 438
+StaticGet2 433
+CallNative "UNK_6F8350CE" 2 0
+Return 1 0
+
+:DrawNormalOptionHighlight_
+Function 0 2 0
+fPush 0.145
+StaticGet1 4
+fPush 0.19
+fPush 0.04
+Push3 255 0 0
+Push 55
+CallNative "DRAW_RECT" 8 0
+Return 0 0
+
+:DrawColorfulOptionHighlight_
+Function 1 2 0
+getF1 0
+Switch [0=@RedHighlight_][1=@GreenHighlight_][2=@YellowHighlight_]
+:RedHighlight_
+fPush 0.145
+StaticGet1 4
+fPush 0.19
+fPush 0.04
+Push3 255 0 0
+Push 100
+CallNative "DRAW_RECT" 8 0
+Jump @EndColorHighlight_
+:GreenHighlight_
+fPush 0.145
+StaticGet1 4
+fPush 0.19
+fPush 0.04
+Push3 0 255 0
+Push 100
+CallNative "DRAW_RECT" 8 0
+Jump @EndColorHighlight_
+:YellowHighlight_
+fPush 0.145
+StaticGet1 4
+fPush 0.19
+fPush 0.04
+Push3 255 255 0
+Push 255
+CallNative "DRAW_RECT" 8 0
+Jump @EndColorHighlight_
+:EndColorHighlight_
+Return 1 0
+
+:DrawBar_
+Function 0 2 0
+fPush 0.06
+StaticGet1 4
+fPush -0.005
+fPush 0.04
+Push3 0 0 0
+Push 0
+CallNative "DRAW_RECT" 8 0
+Return 0 0
+//>
+
+//< Main Menu
+:MainMenu_
+Function 0 2 0
+//Set this to the amount of options in your submenu
+fPush_6.0
+StaticSet2 3
+//Always have this is normal submenus
+Call @DrawBackground_
+//Only include this at the top of your submenu if there will be no colored highlights
+Call @DrawNormalOptionHighlight_
+//No reason to set this more than once in a submenu
+PushString "    Private Menu"
+Call @AddInfoBox_
+PushString "RaYRoD's Menu! (v4)"
+Call @AddTitle_
+//This is pretty self explanatory. Just the display names and numbers for the options.
+fPush_1.0
+PushString "Self Mods"
+Call @AddOption_
+fPush_2.0
+PushString "RaYRoD's Locations"
+Call @AddOption_
+fPush_3.0
+PushString "Tunables Options"
+Call @AddOption_
+fPush_4.0
+PushString "Vehicle Options"
+Call @AddOption_
+fPush_5.0
+PushString "Online Players"
+Call @AddOption_
+fPush_6.0
+PushString "Stat Editor"
+Call @AddOption_
+// Menu startup message
+StaticGet1 29
+push_3
+JumpEQ @MainMenuOptions_
+//< Set font right
+push_7
+StaticSet2 400
+push_4
+StaticSet2 401
+push_7
+StaticSet2 402
+push_4
+StaticSet2 403
+//>
+PushString "RaYRoD's - Mod Menu"
+PushString ""
+Call @AddStrings_
+Call @PrintBottomLeft_
+push_3
+StaticSet1 29
+// Set current network player ped as your own
+CallNative "PLAYER_PED_ID" 0 1
+StaticSet2 241
+//Option's functions
+:MainMenuOptions_
+Call @CheckAPressed_
+push_1
+JumpEQ @MainMenuOptionsController_
+Jump @EndMainMenu_
+:MainMenuOptionsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+//To add an option to a submenu, add one to the value of static1 3, add a display, and add to this loop.
+//This code is what actually happens when you press on an option.
+Switch [1=@MainMenuSubmenu1_][2=@MainMenuSubmenu2_][3=@MainMenuSubmenu3_][4=@MainMenuSubmenu4_][5=@MainMenuOnlinePlayers_][6=@MainMenuStats_]
+:MainMenuSubmenu1_
+//When making an option go to a different submenu use this example code.
+//Set the push value to the value of the submenu in the switch in the main loop.
+push_3
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:MainMenuSubmenu2_
+push_4
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:MainMenuSubmenu3_
+push_5
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:MainMenuSubmenu4_
+push_6
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:MainMenuOnlinePlayers_
+push_7
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:MainMenuStats_
+Push 22
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndMainMenu_
+:EndMainMenu_
+Return 0 0
+//>
+//>
+//< Secondary Color Picker
+:SettingsSecondaryColor_
+Function 0 2 0
+fPush_1.0
+StaticSet1 3
+push_2
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Color Picker"
+Call @AddInfoBox_
+PushString "Color Picker"
+Call @AddTitle_
+fPush_1.0
+PushString "Blue"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @SettingsSecondaryColorController_
+Jump @EndSettingsSecondaryColor_
+:SettingsSecondaryColorController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@SettingsSecondaryColorBlue_]
+:SettingsSecondaryColorBlue_
+Push 205
+StaticSet2 434
+push_0
+StaticSet2 435
+push_0
+StaticSet2 436
+Jump @EndSettingsSecondaryColor_
+:EndSettingsSecondaryColor_
+Return 0 0
+//>
+//< Center Secondary Text Highlighter
+:SettingsCenterSecondaryTextHighlightChecker_
+Function 0 2 0
+StaticGet2 435
+push_0
+JumpEQ @CenterSecondaryHighlightRed_
+push_1
+Call @DrawColorfulOptionHighlight_
+Jump @EndCenterSecondaryHighlighter_
+:CenterSecondaryHighlightRed_
+push_0
+Call @DrawColorfulOptionHighlight_
+:EndCenterSecondaryHighlighter_
+Return 0 0
+//>
+//< Toggle Center Secondary
+:ToggleCenterSecondary_
+Function 0 2 0
+StaticGet2 437
+push_0
+JumpEQ @CenterSecondary_
+push_0
+StaticSet2 437
+fPush 0.07
+StaticSet2 438
+Jump @EndToggleCenterSecondary_
+:CenterSecondary_
+push_1
+StaticSet2 437
+fPush 0.145
+StaticSet2 438
+:EndToggleCenterSecondary_
+Return 0 0
+//>
+//>
+//< Submenu 1
+:Submenu1_
+Function 0 2 0
+fPush 15
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Self Mods"
+Call @AddInfoBox_
+PushString "Self Options"
+Call @AddTitle_
+fPush_1.0
+PushString "God-Mode"
+Call @AddOption_
+fPush_2.0
+PushString "Invisible"
+Call @AddOption_
+fPush_3.0
+PushString "Flicker Mode"
+Call @AddOption_
+fPush_4.0
+PushString "Remove Wanted"
+Call @AddOption_
+fPush_5.0
+PushString "Clone Self"
+Call @AddOption_
+fPush_6.0
+PushString "Heat-Vision"
+Call @AddOption_
+fPush_7.0
+PushString "Night-Vision"
+Call @AddOption_
+fPush 8
+PushString "Give Snowball"
+Call @AddOption_
+fPush 9
+PushString "Fly Away (For Superman Mod)"
+Call @AddOption_
+fPush 10
+PushString "Super-Jump (L2 + Square)"
+Call @AddOption_
+fPush 11
+PushString "Super-Run"
+Call @AddOption_
+fPush 12
+PushString "Wash Player Loop"
+Call @AddOption_
+fPush 13
+PushString "Rockstar Logo on shirt"
+Call @AddOption_
+fPush 14
+PushString "Slow Motion (On)"
+Call @AddOption_
+fPush 15
+PushString "Slow Motion (Off)"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Submenu1Controller_
+Jump @EndSubmenu1_
+:Submenu1Controller_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Godmode_][2=@Invisible_][3=@GhostMode_][4=@Sub1Op4_][5=@Sub1Op5_][6=@HeatVision_][7=@NightVision_][8=@Sub1Op8_][9=@Sub1Op9_][10=@PlayerSuperJump_][11=@PlayerSuperRun_][12=@PlayerWashPlayer_][13=@RockstarLogo_][14=@Slowmo_][15=@SlowMoOFF_]
+:Godmode_
+StaticGet1 10
+Push1 28
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @GodModeOn_
+PushString "God Mode: ~r~Off"
+PushS 2500
+Call @MsgStuff_
+pStatic1 10
+Push1 28
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu1_
+:GodModeOn_
+PushString "God Mode: ~g~On"
+PushS 2500
+Call @MsgStuff_
+pStatic1 10
+Push1 28
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu1_
+:Invisible_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_ENTITY_VISIBLE" 1 1
+Not
+JumpFalse @InvisibleOn_
+PushString "Invisible: ~r~Off"
+PushS 2500
+Call @MsgStuff_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "SET_ENTITY_VISIBLE" 2 0
+push_0
+StaticSet2 494
+Jump @EndSubmenu1_
+:InvisibleOn_
+PushString "Invisible: ~g~On"
+PushS 2500
+Call @MsgStuff_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "SET_ENTITY_VISIBLE" 2 0
+push_1
+StaticSet2 494
+Jump @EndSubmenu1_
+:GhostMode_
+StaticGet1 10
+Push1 31
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @GhostModeOn_
+pStatic1 10
+Push1 31
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu1_
+:GhostModeOn_
+pStatic1 10
+Push1 31
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu1_
+:Sub1Op4_
+CallNative "PLAYER_ID" 0 1
+push_0
+push_0
+CallNative "SET_PLAYER_WANTED_LEVEL" 3 0
+CallNative "PLAYER_ID" 0 1
+push_0
+CallNative "SET_PLAYER_WANTED_LEVEL_NOW" 2 0
+Jump @EndSubmenu1_
+:Sub1Op5_
+CallNative "PLAYER_PED_ID" 1 1
+push_1
+push_1
+push_1
+CallNative "CLONE_PED" 4 1
+Drop
+Jump @EndSubmenu1_
+:HeatVision_
+StaticGet2 439
+push_0
+JumpEQ @HeatVisionOn_
+push_0
+CallNative "SET_SEETHROUGH" 1 0
+push_0
+StaticSet2 439
+Jump @EndSubmenu1_
+:HeatVisionOn_
+push_1
+CallNative "SET_SEETHROUGH" 1 0
+push_1
+StaticSet2 439
+Jump @EndSubmenu1_
+:NightVision_
+StaticGet2 440
+push_0
+JumpEQ @NightVisionOn_
+push_0
+CallNative "SET_NIGHTVISION" 1 0
+push_0
+StaticSet2 440
+Jump @EndSubmenu1_
+:NightVisionOn_
+push_1
+CallNative "SET_NIGHTVISION" 1 0
+push_1
+StaticSet2 440
+Jump @EndSubmenu1_
+:Sub1Op8_
+CallNative "PLAYER_PED_ID" 0 1
+Push 126349499
+Push -1
+Push 1
+CallNative "GIVE_DELAYED_WEAPON_TO_PED" 4 0
+Jump @EndSubmenu1_
+:Sub1Op9_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "TASK_PARACHUTE" 2 0
+Jump @EndSubmenu1_
+:PlayerSuperJump_
+StaticGet1 10
+Push1 12
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerSuperJumpOn_
+pStatic1 10
+Push1 12
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu1_
+:PlayerSuperJumpOn_
+pStatic1 10
+Push1 12
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu1_
+:PlayerSuperRun_
+StaticGet1 10
+Push1 11
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerSuperRunOn_
+pStatic1 10
+Push1 11
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu1_
+:PlayerSuperRunOn_
+pStatic1 10
+Push1 11
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu1_
+:PlayerWashPlayer_
+StaticGet1 10
+Push1 14
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerWashPlayerOn_
+pStatic1 10
+Push1 14
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu1_
+:PlayerWashPlayerOn_
+pStatic1 10
+Push1 14
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu1_
+:RockstarLogo_
+PushString "R* Logo Applied"
+PushS 2500
+Call @MsgStuff_
+CallNative "PLAYER_PED_ID" 0 1
+Push 1398869298
+Neg
+Push 1730534702
+Neg
+CallNative "UNK_70559AC7" 3 0
+Jump @EndSubmenu1_
+:Slowmo_
+PushString "Slow Motion: ~g~On"
+PushS 2500
+Call @MsgStuff_
+fPush 0.3000
+CallNative "SET_TIME_SCALE" 1 0
+Jump @EndSubmenu1_
+:SlowMoOFF_
+PushString "Slow Motion: ~r~Off"
+PushS 2500
+fPush 1
+CallNative "SET_TIME_SCALE" 1 0
+push_0
+Jump @EndSubmenu1_
+:EndSubmenu1_
+Return 0 0
+//>
+//< Submenu 2
+:Submenu2_
+Function 0 2 0
+fPush 15
+StaticSet1 3
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "RaYRoD's Locations"
+Call @AddInfoBox_
+PushString "Teleport Options"
+Call @AddTitle_
+fPush_1.0
+PushString "Ocean Coast's Cave"
+Call @AddOption_
+fPush_2.0
+PushString "Crane (Scenic-View)"
+Call @AddOption_
+fPush_3.0
+PushString "Far Island With Flowers"
+Call @AddOption_
+fPush_4.0
+PushString "Maze Bank - City Helipad"
+Call @AddOption_
+fPush_5.0
+PushString "Waterfall Watching"
+Call @AddOption_
+fPush_6.0
+PushString "Canyon - Train Tracks"
+Call @AddOption_
+fPush_7.0
+PushString "Mount. Chiliad"
+Call @AddOption_
+fPush 8
+PushString "Mount. Chiliad (Scenic-View)"
+Call @AddOption_
+fPush 9
+PushString "Ammunation (City)"
+Call @AddOption_
+fPush 10
+PushString "Jet Spawn Point (1)"
+Call @AddOption_
+fPush 11
+PushString "Jet Spawn Point (2)"
+Call @AddOption_
+fPush 12
+PushString "500k Apartment (Outside)"
+Call @AddOption_
+fPush 13
+PushString "10 Car Garage"
+Call @AddOption_
+fPush 14 
+PushString "Ponsonboy's Clothing"
+Call @AddOption_
+fPush 15
+PushString "Private Mountain's Pool"
+Call @AddOption_
+//Highlight
+//You can do this if you want code executed when the option is highlighted.
+//Its a a lot like the code for when you select an option except it is not monitoring for a button press.
+Call @CheckAPressed_
+push_1
+JumpEQ @Submenu2Controller_
+Jump @EndSubmenu2_
+:Submenu2Controller_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Sub2Op1_][2=@Sub2Op2_][3=@Sub2Op3_][4=@Sub2Op4_][5=@Sub2Op5_][6=@Sub2Op6_][7=@Sub2Op7_][8=@Sub2Op8_][9=@Sub2Op9_][10=@Sub2Op10_][11=@Sub2Op11_][12=@Sub2Op12_][13=@Sub2Op13_][14=@Sub2Op14_][15=@Sub2Op15_]
+:Sub2Op1_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 3062.855
+fPush 2214.975
+fPush 3.381231
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op2_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -119.859985
+fPush -976.43866
+fPush 306.3385
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op3_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -125.6544
+fPush 7271.8940
+fPush 16.7366
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op4_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -74.94243
+fPush -818.63446
+fPush 326.174347
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op5_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -540.4822
+fPush 4402.3590
+fPush 34.3786
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op6_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -530.6747
+fPush 4534.9960
+fPush 89.0457
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op7_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 489.3171
+fPush 5580.8870
+fPush 792.8515
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op8_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 413.4706
+fPush 5572.8210
+fPush 779.6819
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op9_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 247.3652
+fPush -45.8777
+fPush 69.9411
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op10_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -2019.0620
+fPush 2956.4530
+fPush 32.8101
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op11_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -2148.3510
+fPush 3031.7620
+fPush 32.8099
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op12_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -775.0500
+fPush 312.3200
+fPush 85.7000
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op13_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 229.3570
+fPush -992.9106
+fPush -98.9999
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op14_
+CallNative "PLAYER_PED_ID" 0 1
+fPush -159.2996
+fPush -304.3292
+fPush 39.7333
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:Sub2Op15_
+CallNative "PLAYER_PED_ID" 0 1
+fPush 2559.2640
+fPush 6184.1520
+fPush 162.7809
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndSubmenu2_
+:EndSubmenu2_
+Return 0 0
+//>
+
+//< Submenu 3
+:Submenu3_
+Function 0 2 0
+fPush 10
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Tunables Mods"
+Call @AddInfoBox_
+PushString "Tunables"
+Call @AddTitle_
+fPush_1.0
+PushString "Xmas Snow (On)"
+Call @AddOption_
+fPush_2.0
+PushString "Deleted Cars (Not Updated)"
+Call @AddOption_
+fPush_3.0
+PushString "Purchase Firework Launcher"
+Call @AddOption_
+fPush_4.0
+PushString "Valentines Content (Not Updated)"
+Call @AddOption_
+fPush_5.0
+PushString "Independence Content (Not Updated)"
+Call @AddOption_
+fPush_6.0
+PushString "Xmas Content (Not Updated)"
+Call @AddOption_
+fPush_7.0
+PushString "CTF Content"
+Call @AddOption_
+fPush 8
+PushString "LTS Content"
+Call @AddOption_
+fPush 9
+PushString "Enable Snowballs"
+Call @AddOption_
+fPush 10
+PushString "Xmas Snow (Off)"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Submenu3Controller_
+Jump @EndSubmenu3_
+:Submenu3Controller_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@SnowOn_][2=@DeletedCars_][3=@Fireworks_][4=@ValentinesDay_][5=@Independence_][6=@XmasContent_][7=@CTFContent_][8=@LTSContent_][9=@EnableSnowballs_][10=@SnowOff_]
+:SnowOn_
+push_1
+pGlobal3 262145
+SetImmediate2 4710
+Jump @EndSubmenu3_
+:DeletedCars_
+push_1
+pGlobal3 262145
+SetImmediate2 5988
+push_1
+pGlobal3 262145
+SetImmediate2 5987
+Jump @EndSubmenu3_
+:Fireworks2_
+push_0
+pGlobal3 262145
+SetImmediate2 6005
+Jump @EndSubmenu3_
+:ValentinesDay_
+push_1
+pGlobal3 262145
+SetImmediate2 4805
+Jump @EndSubmenu3_
+:Independence_
+push_1
+pGlobal3 262145
+SetImmediate2 5974
+Jump @EndSubmenu3_
+:XmasContent_
+push_1
+pGlobal3 262145
+SetImmediate2 4719
+Jump @EndSubmenu3_
+:CTFContent_
+push_1
+pGlobal3 262145
+SetImmediate2 4853
+Jump @EndSubmenu3_
+:LTSContent_
+push_1
+pGlobal3 262145
+SetImmediate2 4854
+Jump @EndSubmenu3_
+:EnableSnowballs_
+push_0
+pGlobal3 262145
+SetImmediate2 6867
+Jump @EndSubmenu3_
+:SnowOff_
+push_0
+pGlobal3 262145
+SetImmediate2 4710
+Jump @EndSubmenu3_
+:EndSubmenu3_
+Return 0 0
+//< Submenu 4
+:Submenu4_
+Function 0 2 0
+fPush 13
+StaticSet1 3
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Vehicle Modifications"
+Call @AddInfoBox_
+PushString "Vehicle Options"
+Call @AddTitle_
+fPush_1.0
+PushString "Paint Vehicle Random"
+Call @AddOption_
+fPush_2.0
+PushString "Invisible (Toggle)"
+Call @AddOption_
+fPush_3.0
+PushString "Fix vehicle"
+Call @AddOption_
+fPush_4.0
+PushString "Super Vehicle-Boost"
+Call @AddOption_
+fPush_5.0
+PushString "Super Speed (R2 + Square)"
+Call @AddOption_
+fPush_6.0
+PushString "Super Jump (R2 + Right)"
+Call @AddOption_
+fPush_7.0
+PushString "Vehicle Fix (Loop)"
+Call @AddOption_
+fPush 8
+PushString "Rainbow Vehicle"
+Call @AddOption_
+fPush 9
+PushString "Vehicle God-Mode (Toggle)"
+Call @AddOption_
+fPush 10
+PushString "Vehicle God-Mode (Loop)"
+Call @AddOption_
+fPush 11
+PushString "Teleport in Closest Vehicle"
+Call @AddOption_
+fPush 12
+PushString "Personal Vehicle Options---"
+Call @AddOption_
+//Highlight
+//The info box is not just limited to a whole submenu. You can display it on an option highlight as well.
+Call @CheckAPressed_
+push_1
+JumpEQ @Submenu4Controller_
+Jump @EndSubmenu4_
+:Submenu4Controller_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Sub4Op1_][2=@Sub4Op2_][3=@Sub4Op3_][4=@Sub4Op4_][5=@PlayerSuperCarSpeed_][6=@PlayerCarJump_][7=@PlayerCarFixLoop_][8=@PlayerCarRainbow_][9=@VehicleGodMode_][10=@VehicleGodModeLoop_][11=@TeleportToClosestVehicle_][12=@PersonalVehicleOps_]
+:Sub4Op1_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndSubmenu4_
+:Sub4Op2_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+CallNative "IS_ENTITY_VISIBLE" 1 1
+JumpFalse @Sub4Op3_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+CallNative "SET_ENTITY_VISIBLE" 2 0
+Jump @EndSubmenu4_
+:Sub4Op3_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_1
+CallNative "SET_ENTITY_VISIBLE" 2 0
+Jump @EndSubmenu4_
+:Sub4Op4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+CallNative "SET_VEHICLE_FIXED" 1 0
+Jump @EndSubmenu4_
+:Sub4Op5_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+fPush 100
+CallNative "SET_VEHICLE_FORWARD_SPEED" 2 0
+Jump @EndSubmenu4_
+:PlayerSuperCarSpeed_
+StaticGet1 10
+Push1 13
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerSuperCarSpeedOn_
+pStatic1 10
+Push1 13
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerSuperCarSpeedOn_
+pStatic1 10
+Push1 13
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarJump_
+StaticGet1 10
+Push1 15
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerCarJumpOn_
+pStatic1 10
+Push1 15
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarJumpOn_
+pStatic1 10
+Push1 15
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarFixLoop_
+StaticGet1 10
+Push1 16
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerCarFixLoopOn_
+pStatic1 10
+Push1 16
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarFixLoopOn_
+pStatic1 10
+Push1 16
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarRainbow_
+StaticGet1 10
+Push1 18
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @PlayerCarRainbowOn_
+pStatic1 10
+Push1 18
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu4_
+:PlayerCarRainbowOn_
+pStatic1 10
+Push1 18
+CallNative "SET_BIT" 2 0
+:VehicleGodMode_
+StaticGet2 442
+push_0
+JumpEQ @VehicleGodmodeOn_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_0
+push_1
+CallNative "SET_ENTITY_INVINCIBLE" 3 0
+push_0
+StaticSet2 442
+Jump @EndSubmenu4_
+:VehicleGodmodeOn_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+push_1
+push_1
+CallNative "SET_ENTITY_INVINCIBLE" 3 0
+push_1
+StaticSet2 442
+Jump @EndSubmenu4_
+:VehicleGodModeLoop_
+StaticGet1 10
+Push1 29
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @VehicleGodModeLoopOn_
+pStatic1 10
+Push1 29
+CallNative "CLEAR_BIT" 2 0
+Jump @EndSubmenu4_
+:VehicleGodModeLoopOn_
+pStatic1 10
+Push1 29
+CallNative "SET_BIT" 2 0
+Jump @EndSubmenu4_
+:TeleportToClosestVehicle_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_ENTITY_COORDS" 2 3
+fPush 100
+push_0
+push_4
+CallNative "GET_CLOSEST_VEHICLE" 6 1
+setF1 3
+getF1 3
+CallNative "DOES_ENTITY_EXIST" 1 1
+JumpFalse @EndSubmenu4_
+CallNative "PLAYER_PED_ID" 0 1
+getF1 3
+push_-1
+CallNative "SET_PED_INTO_VEHICLE" 3 0
+Jump @EndSubmenu4_
+:PersonalVehicleOps_
+Push 15
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndSubmenu4_
+:EndSubmenu4_
+Return 0 0
+
+//< Stats
+:Stats_
+Function 0 2 0
+fPush 11
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Stat Editor"
+Call @AddInfoBox_
+PushString "Rank Editor"
+Call @AddTitle_
+fPush_1.0
+PushString "Rank 120"
+Call @AddOption_
+fPush_2.0
+PushString "Rank 200"
+Call @AddOption_
+fPush_3.0
+PushString "Rank 350"
+Call @AddOption_
+fPush_4.0
+PushString "Rank 450"
+Call @AddOption_
+fPush_5.0
+PushString "Rank 500"
+Call @AddOption_
+fPush_6.0
+PushString "Rank 1337"
+Call @AddOption_
+fPush_7.0
+PushString "Rank 8000"
+Call @AddOption_
+fPush 8
+PushString "Rank 10"
+Call @AddOption_
+fPush 9
+PushString "Rank 1"
+Call @AddOption_
+fPush 10
+PushString "Custom Input"
+Call @AddOption_
+fPush 11
+PushString "Character 2"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @StatsController_
+Jump @EndStats_
+:StatsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Rank120_][2=@Rank200_][3=@Rank350_][4=@Rank450_][5=@Rank500_][6=@Rank1337_][7=@Rank8000_][8=@Rank10_][9=@Rank1_][10=@CustomRankPoints_][11=@RankCharacter2_]
+:Rank120_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 2165850 
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank200_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 4691850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank350_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 10290600
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank450_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 14648100
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank500_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 17014350
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank1337_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 75185850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank8000_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 1787576850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank10_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 24000
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:Rank1_
+PushString "mp0_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 0
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndStats_
+:CustomRankPoints_
+push_0
+StaticSet1 12
+Call @PromptUser_
+pStatic1 12
+CallNative "STRING_TO_INT" 2 1
+Drop
+PushString "mp0_char_xp_fm"
+StaticGet1 12
+Call @StatSetInt_
+Jump @EndStats_
+:RankCharacter2_
+Push 23
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndStats_
+:EndStats_
+Return 0 0
+
+//< Stats
+:RankP2_
+Function 0 2 0
+fPush 11
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+Push 22
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Character 2"
+Call @AddInfoBox_
+PushString "Rank Editor"
+Call @AddTitle_
+fPush_1.0
+PushString "Rank 120"
+Call @AddOption_
+fPush_2.0
+PushString "Rank 200"
+Call @AddOption_
+fPush_3.0
+PushString "Rank 350"
+Call @AddOption_
+fPush_4.0
+PushString "Rank 450"
+Call @AddOption_
+fPush_5.0
+PushString "Rank 500"
+Call @AddOption_
+fPush_6.0
+PushString "Rank 1337"
+Call @AddOption_
+fPush_7.0
+PushString "Rank 8000"
+Call @AddOption_
+fPush 8
+PushString "Rank 10"
+Call @AddOption_
+fPush 9
+PushString "Rank 1"
+Call @AddOption_
+fPush 10
+PushString "Custom Input"
+Call @AddOption_
+fPush 11
+PushString "Cash Options"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @RankP2Controller_
+Jump @EndRankP2_
+:RankP2Controller_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Rank120p2_][2=@Rank200p2_][3=@Rank350p2_][4=@Rank450p2_][5=@Rank500p2_][6=@Rank1337p2_][7=@Rank8000p2_][8=@Rank10p2_][9=@Rank1p2_][10=@CustomRankPointsp2_][11=@CashEditor_]
+:Rank120p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 2165850 
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank200p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 4691850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank350p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 10290600
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank450p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 14648100
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank500p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 17014350
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank1337p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 75185850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank8000p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 1787576850
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank10p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 24000
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:Rank1p2_
+PushString "mp1_char_xp_fm"
+CallNative "GET_HASH_KEY" 1 1
+Push 0
+push_1
+CallNative "STAT_SET_INT" 3 1
+Jump @EndRankP2_
+:CustomRankPointsp2_
+push_0
+StaticSet1 12
+Call @PromptUser_
+pStatic1 12
+CallNative "STRING_TO_INT" 2 1
+Drop
+PushString "mp1_char_xp_fm"
+StaticGet1 12
+Call @StatSetInt_
+Jump @EndRankP2_
+:CashEditor_
+Push 24
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndRankP2_
+:EndRankP2_
+Return 0 0
+
+//< Cash Editor
+:CashOptions_
+Function 0 2 0
+fPush_4.0
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+Push 23
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Cash Options"
+Call @AddInfoBox_
+PushString "Cash Editor"
+Call @AddTitle_
+fPush_1.0
+PushString "5 Million to Bank"
+Call @AddOption_
+fPush_2.0
+PushString "10 Million To Bank"
+Call @AddOption_
+fPush_3.0
+PushString "Amount To Add"
+Call @AddOption_
+fPush_4.0
+PushString "Unlock Options"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @CashOptionsController_
+Jump @EndCashOptions_
+:CashOptionsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@5milltobank_][2=@10milltobank_][3=@Addtowallet_][4=@Unlocks_]
+:5milltobank_
+Push 5000000
+CallNative "NETWORK_EARN_FROM_ROCKSTAR" 1 0
+Jump @EndCashOptions_
+:10milltobank_
+Push 9999969
+CallNative "NETWORK_EARN_FROM_ROCKSTAR" 1 0
+Jump @EndCashOptions_
+:Addtowallet_
+push_0
+StaticSet1 12
+Call @PromptUser_
+pStatic1 12
+CallNative "STRING_TO_INT" 2 1
+Drop
+PushString "mp0_wallet_balance"
+GetHash
+StaticGet1 12
+ItoF
+CallNative "STAT_INCREMENT" 2 0
+Jump @EndCashOptions_
+:Unlocks_
+Push 25
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndCashOptions_
+:EndCashOptions_
+Return 0 0
+
+//< Unlock
+:UnlockOptions_
+Function 0 2 0
+fPush_4.0
+StaticSet1 3
+//This value is the submenu you go to when you go back a submenu. Always set this to the parent submenu's value in the main switch.
+//It was not included in the main menu because that is handled elsewhere and is not needed.
+Push 24
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+//You can add an info box at the top of your submenu function if you want it to display the entire time the submenu is running.
+PushString "Unlock Stuff"
+Call @AddInfoBox_
+PushString "Unlocks"
+Call @AddTitle_
+fPush_1.0
+PushString "Unlock Everything!"
+Call @AddOption_
+fPush_2.0
+PushString "Aquire All Clothing"
+Call @AddOption_
+fPush_3.0
+PushString "Max Snacks+Armour"
+Call @AddOption_
+fPush_4.0
+PushString "Cheater Options"
+Call @AddOption_
+//Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @UnlockOptionsController_
+Jump @EndUnlockOptions_
+:UnlockOptionsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@UnlockEverything_][2=@UnlockHidden+DlcClothing_][3=@MaxInventory_][4=@CheaterOptions_]
+:UnlockEverything_
+PushString "Unlocked All"
+PushS 2500
+Call @PrintStringBottomCentre_
+PushString "tattoo_fm_unlocks_0"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_10"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_11"
+push_-1
+Call @StatSetIntStatic23_
+PushString "tattoo_fm_unlocks_12"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_4_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_5_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_6_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_carmod_7_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_4_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_5_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_6_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_7_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_8_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_9_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_10_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_clothes_11_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "rankap_unlk_0"
+push_-1
+Call @StatSetIntStatic23_
+PushString "rankap_unlk_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "rankap_unlk_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "rankap_unlk_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "weapon_pickup_bitset"
+push_-1
+Call @StatSetIntStatic23_
+PushString "weapon_pickup_bitset2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_unlocked"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_unlocked2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_addon_0_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_addon_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_addon_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_addon_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_addon_4_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_1_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_2_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_3_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_4_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_5_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_6_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_7_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_7_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_9_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_10_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_11_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_12_fm_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase10"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase11"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_kit_fm_purchase12"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_0_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_4_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "races_won"
+Push 100
+Call @StatSetIntStatic23_
+PushString "usjs_found"
+Push 50
+Call @StatSetIntStatic23_
+PushString "usjs_completed"
+Push 50
+Call @StatSetIntStatic23_
+PushString "unlock_hipster_tshirt_dog"
+push_-1
+Call @StatSetIntStatic23_
+PushString "unlock_hipster_tshirt_vinyl"
+push_-1
+Call @StatSetIntStatic23_
+PushString "unlock_hipster_tshirt_mess"
+push_-1
+Call @StatSetIntStatic23_
+PushString "unlock_race_hipster_tshirt"
+push_-1
+Call @StatSetIntStatic23_
+PushString "unlock_dm_hipster_tshirt"
+push_-1
+Call @StatSetIntStatic23_
+PushString "awd_fmwinairrace"
+Push 50
+Call @StatSetIntStatic23_
+PushString "awd_fmwinsearace"
+Push 50
+Call @StatSetIntStatic23_
+PushString "awd_rallywondrive"
+Push 50
+Call @StatSetIntStatic23_
+PushString "awd_fmrallywonnav"
+Push 50
+Call @StatSetIntStatic23_
+PushString "number_slipstreams_in_race"
+Push 140
+Call @StatSetIntStatic23_
+PushString "awd_fm_races_fastest_lap"
+Push 120
+Call @StatSetIntStatic23_
+PushString "number_turbo_starts_in_race"
+Push 120
+Call @StatSetIntStatic23_
+PushString "awd_no_haircuts"
+Push 25
+Call @StatSetIntStatic23_
+PushString "awd_security_cars_robbed"
+Push 50
+Call @StatSetIntStatic23_
+PushString "awd_100_kills_sniper"
+push_-1
+Call @StatSetIntStatic23_
+PushString "awd_50_kills_grenades"
+push_-1
+Call @StatSetIntStatic23_
+PushString "awd_cops_killed"
+Push 100
+Call @StatSetIntStatic23_
+PushString "awd_fmwineverygamemode"
+push_1
+Call @StatSetBool_
+PushString "awd_fmpickupdlccrate1st"
+push_1
+Call @StatSetBool_
+PushString "uniquecrates"
+push_7
+Call @StatSetIntStatic23_
+PushString "awd_fmcratedrops"
+Push 60
+Call @StatSetIntStatic23_
+PushString "awd_fmwinallracemodes"
+push_1
+Call @StatSetBool_
+PushString "awd_fmraceworldrecholder"
+push_1
+Call @StatSetBool_
+PushString "char_crewunlock_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_crewunlock_1_fm_equip"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_crewunlock_2_fm_equip"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_crewunlock_3_fm_equip"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_crewunlock_4_fm_equip"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_crewunlock_5_fm_equip"
+push_-1
+Call @StatSetIntStatic23_
+PushString "lap_danced_bought"
+Push 50
+Call @StatSetIntStatic23_
+PushString "prostitutes_frequented"
+Push 50
+Call @StatSetIntStatic23_
+PushString "char_fm_health_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_health_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_vehicle_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_vehicle_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "script_increase_stam"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_strn"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_lung"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_driv"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_fly"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_sho"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_stl"
+Push 100
+Call @StatSetIntStatic23_
+PushString "script_increase_mech"
+Push 100
+Call @StatSetIntStatic23_
+PushString "char_fm_haircut_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_unlocked"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_unlocked2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_addon_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_addon_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_addon_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_addon_4_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_free"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_weap_free2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_free"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_weap_free2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_ability_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_ability_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_ability_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_1_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_2_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_3_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_4_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_5_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_6_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_7_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_8_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_fm_package_9_collect"
+push_-1
+Call @StatSetIntStatic23_
+PushString "archenemy_name"
+CallNative "GET_HASH_KEY" 1 1
+PushString "RaYRoD"
+push_1
+CallNative "STAT_SET_STRING" 3 1
+Drop
+PushString "char_ability_1_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_ability_2_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "char_ability_3_unlck"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_0"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "pilot_school_medal_9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "show_property_blip_on_job"
+push_-1
+Call @StatSetIntStatic23_
+Jump @EndUnlockOptions_
+:UnlockHidden+DlcClothing_
+PushString "DLC Clothing Unlocked"
+PushS 2500
+Call @PrintStringBottomCentre_
+PushString "dlc_apparel_acquired_0"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_10"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_11"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_12"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_13"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_14"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_15"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_16"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_17"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_18"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_19"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_20"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_21"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_22"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_23"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_24"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_25"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_26"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_27"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_28"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_29"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_30"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_31"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_32"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_33"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_34"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_35"
+push_-1
+Call @StatSetIntStatic23_
+PushString "dlc_apparel_acquired_36"
+push_-1
+Call @StatSetIntStatic23_
+:Special_
+PushString "clths_acquired_special"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_acquired_special2_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "admin_clothes_gv_bs_10"
+push_-1
+:NormalClothes_
+Call @StatSetIntStatic23_
+PushString "clths_available_hair"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_hair_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_jbib_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_legs_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_feet_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_berd_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_2"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_3"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_4"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_5"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_6"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_7"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_8"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_9"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_props_10"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_outfit"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_decl"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_teeth"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_teeth_1"
+push_-1
+Call @StatSetIntStatic23_
+PushString "clths_available_teeth_2"
+push_-1
+Call @StatSetIntStatic23_
+Jump @EndUnlockOptions_
+:MaxInventory_
+PushString "mp0_mp_char_armour_1_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_mp_char_armour_2_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_mp_char_armour_3_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_mp_char_armour_4_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_mp_char_armour_5_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_char_current_health"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_char_current_armour"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_mp_char_armour_1_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_mp_char_armour_2_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_mp_char_armour_3_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_mp_char_armour_4_count"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_mp_char_armour_5_count"
+Push 999999999
+Call @StatSetInt_
+:Snacks_
+PushString "mp0_no_bought_yum_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_no_bought_health_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_no_bought_epic_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_number_of_orange_bought"
+Push 999999999
+Call @StatSetInt_
+PushString "mp0_number_of_bourge_bought"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_no_bought_yum_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_no_bought_health_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_no_bought_epic_snacks"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_number_of_orange_bought"
+Push 999999999
+Call @StatSetInt_
+PushString "mp1_number_of_bourge_bought"
+Push 999999999
+Call @StatSetInt_
+:Fireworks_
+PushString "mp0_firework_type_1_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_1_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_1_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_2_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_2_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_2_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_3_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_3_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_3_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_4_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_4_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp0_firework_type_4_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_1_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_1_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_1_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_2_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_2_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_2_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_3_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_3_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_3_blue"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_4_white"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_4_red"
+Push 99999999
+Call @StatSetInt_
+PushString "mp1_firework_type_4_blue"
+Push 99999999
+Call @StatSetInt_
+Jump @EndUnlockOptions_
+:RemoveFromWallet_
+push_0
+StaticSet1 12
+push_0
+StaticSet2 481
+Call @PromptUser_
+pStatic1 12
+CallNative "STRING_TO_INT" 2 1
+Drop
+PushString "mp0_wallet_balance"
+GetHash
+pStatic2 481
+push_1
+CallNative "STAT_GET_INT" 3 1
+Drop
+StaticGet2 481
+StaticGet1 12
+Sub
+StaticSet1 12
+PushString "mp1_wallet_balance"
+StaticGet1 12
+Call @StatSetInt_
+Jump @EndUnlockOptions_
+:CheaterOptionssub_
+Push 26
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndUnlockOptions_
+:EndUnlockOptions_
+Return 0 0
+
+:CheaterOptions_
+Function 0 2 0
+fPush_5.0
+StaticSet1 3
+Push 25
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Useful Utilities"
+Call @AddInfoBox_
+PushString "Cheater Options"
+Call @AddTitle_
+fPush_1.0
+PushString "Revoke Cheater"
+Call @AddOption_
+fPush_2.0
+PushString "Revoke Bad Sport"
+Call @AddOption_
+fPush_3.0
+PushString "Clear Reports + Commend"
+Call @AddOption_
+fPush_4.0
+PushString "Bypass Tutorial"
+Call @AddOption_
+// Options' Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @CheaterOptionsController_
+Jump @EndCheaterOptions_
+:CheaterOptionsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Cheater_][2=@RemoveBadSport_][3=@ClearReports_][4=@BypassTutorial_]
+:Cheater_
+PushString "mp0_times_cheated"
+push_0
+Call @StatSetInt_
+PushString "mp1_times_cheated"
+push_0
+Call @StatSetInt_
+PushString "mpply_is_cheater"
+push_0
+Call @StatSetBool_
+PushString "mp0_cheat_bitset"
+push_0
+Call @StatSetInt_
+PushString "mp1_cheat_bitset"
+push_0
+Call @StatSetInt_
+PushString "mpply_was_i_cheater"
+push_0
+Call @StatSetBool_
+PushString "mpply_overall_cheat"
+fPush 0
+Call @StatSetFloat_
+PushString "mpply_became_cheater_num"
+push_0
+Call @StatSetInt_
+PushString "mpply_dm_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_race_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_mc_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_mgame_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "scadmin_is_cheater"
+push_0
+Call @StatSetBool_
+PushString "mpply_cap_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_sur_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_lts_cheat_tally"
+push_0
+Call @StatSetInt_
+PushString "mpply_para_cheat_tally"
+push_0
+Call @StatSetInt_
+Jump @EndCheaterOptions_
+:RemoveBadSport_
+PushString "mp0_bad_sport_bitset"
+push_0
+Call @StatSetInt_
+PushString "mp1_bad_sport_bitset"
+push_0
+Call @StatSetInt_
+PushString "mpply_was_i_bad_sport"
+push_0
+Call @StatSetBool_
+PushString "mpply_overall_bad_sport"
+fPush 0
+Call @StatSetFloat_
+PushString "mpply_char_bad_sport"
+push_0
+Call @StatSetBool_
+PushString "mpply_became_bad_sport_num"
+push_0
+Call @StatSetInt_
+PushString "mpply_destroyed_pvehicles"
+push_0
+Call @StatSetInt_
+Jump @EndCheaterOptions_
+:ClearReports_
+PushString "mpply_commend_strength"
+Push 160
+Call @StatSetInt_
+PushString "mpply_friendly"
+Push 150
+Call @StatSetInt_
+PushString "mpply_helpful"
+Push 140
+Call @StatSetInt_
+PushString "mpply_griefing"
+push_0
+Call @StatSetInt_
+PushString "mpply_vc_annoyingme"
+push_0
+Call @StatSetInt_
+PushString "mpply_offensive_language"
+push_0
+Call @StatSetInt_
+PushString "mpply_offensive_ugc"
+push_0
+Call @StatSetInt_
+PushString "mpply_vc_hate"
+push_0
+Call @StatSetInt_
+PushString "mpply_offensive_tagplate"
+push_0
+Call @StatSetInt_
+PushString "mpply_bad_crew_name"
+push_0
+Call @StatSetInt_
+PushString "mpply_bad_crew_motto"
+push_0
+Call @StatSetInt_
+PushString "mpply_bad_crew_status"
+push_0
+Call @StatSetInt_
+PushString "mpply_bad_crew_emblem"
+push_0
+Call @StatSetInt_
+PushString "mpply_game_exploits"
+push_0
+Call @StatSetInt_
+PushString "mpply_exploits"
+push_0
+Call @StatSetInt_
+PushString "mpply_ispunished"
+push_0
+Call @StatSetBool_
+Jump @EndCheaterOptions_
+:BypassTutorial_
+PushString "mp0_fm_racetut_done"
+push_1
+Call @StatSetBool_
+PushString "mp0_no_tut_spawn"
+push_1
+Call @StatSetBool_
+PushString "mp0_front_end_jip_unlocked"
+push_1
+Call @StatSetBool_
+PushString "mp0_fm_trigtut_done"
+push_1
+Call @StatSetBool_
+PushString "mp0_fm_holdtut_done"
+push_1
+Call @StatSetBool_
+PushString "mp0_fm_cmodtut_done"
+push_1
+Call @StatSetBool_
+PushString "mp1_fm_racetut_done"
+push_1
+Call @StatSetBool_
+PushString "mp1_no_tut_spawn"
+push_1
+Call @StatSetBool_
+PushString "mp1_front_end_jip_unlocked"
+push_1
+Call @StatSetBool_
+PushString "mp1_fm_trigtut_done"
+push_1
+Call @StatSetBool_
+PushString "mp1_fm_holdtut_done"
+push_1
+Call @StatSetBool_
+PushString "mp1_fm_cmodtut_done"
+push_1
+Call @StatSetBool_
+PushString "mpply_no_more_tutorials"
+push_1
+Call @StatSetBool_
+Jump @EndCheaterOptions_
+:EndCheaterOptions_
+
+:PersonalVehicle_
+Function 0 2 0
+fPush_3.0
+StaticSet1 3
+push_6
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Control Your Vehicle"
+Call @AddInfoBox_
+PushString "Personal Vehicle Options"
+Call @AddTitle_
+fPush_1.0
+PushString "Save Vehicle"
+Call @AddOption_
+fPush_2.0
+PushString "Teleport to-Vehicle"
+Call @AddOption_
+fPush_3.0
+PushString "Teleport Vehicle to-You"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @PersonalVehicleSubController_
+Jump @EndPersonalVehicle_
+:PersonalVehicleSubController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@PersonalVehicle_Save][2=@PersonalVehicle_TeleportToVehicle][3=@PersonalVehicle_TeleportVehicleToYou]
+:PersonalVehicle_Save
+// PVOps Save Static
+push_0
+StaticSet2 478
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @PersonalVehicle_PlayerNotInVehicle
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+CallNative "PLAYER_PED_ID" 0 1
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticSet2 478
+Jump @EndPersonalVehicle_
+:PersonalVehicle_TeleportToVehicle
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @PersonalVehicle_TeleportToVehicleOnFoot
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+Call @RequestControlOfVeh_
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "GET_VEHICLE_PED_IS_USING" 1 1
+StaticGet2 478
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+fPush 3062.855
+fPush 2214.975
+fPush 3.381231
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndPersonalVehicle_
+:PersonalVehicle_TeleportToVehicleOnFoot
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 478
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+fPush_1.0
+Push 1000
+Push 1048576000
+push_0
+Push 1193033728
+CallNative "TASK_FOLLOW_NAV_MESH_TO_COORD" 9 0
+Jump @EndPersonalVehicle_
+:PersonalVehicle_TeleportVehicleToYou
+StaticGet2 478
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndPersonalVehicle_
+:PersonalVehicle_PlayerNotInVehicle
+PushString "~r~Error:~s~ Player is not in a vehicle."
+Call @PrintBottomLeft_
+Jump @EndPersonalVehicle_
+:EndPersonalVehicle_
+Return 0 0
+//>
+//< Menu Players submenu
+
+//< Players Sub
+:PlayersSub_
+Function 0 2 0
+fPush 18
+StaticSet1 3
+push_1
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Online Players"
+Call @AddTitle_
+fPush_1.0
+push_0
+Call @GetPlayerName_
+Call @AddOption_
+fPush_2.0
+push_1
+Call @GetPlayerName_
+Call @AddOption_
+fPush_3.0
+push_2
+Call @GetPlayerName_
+Call @AddOption_
+fPush_4.0
+push_3
+Call @GetPlayerName_
+Call @AddOption_
+fPush_5.0
+push_4
+Call @GetPlayerName_
+Call @AddOption_
+fPush_6.0
+push_5
+Call @GetPlayerName_
+Call @AddOption_
+fPush_7.0
+push_6
+Call @GetPlayerName_
+Call @AddOption_
+fPush 8
+push_7
+Call @GetPlayerName_
+Call @AddOption_
+fPush 9
+Push 8
+Call @GetPlayerName_
+Call @AddOption_
+fPush 10
+Push 9
+Call @GetPlayerName_
+Call @AddOption_
+fPush 11
+Push 10
+Call @GetPlayerName_
+Call @AddOption_
+fPush 12
+Push 11
+Call @GetPlayerName_
+Call @AddOption_
+fPush 13
+Push 12
+Call @GetPlayerName_
+Call @AddOption_
+fPush 14
+Push 13
+Call @GetPlayerName_
+Call @AddOption_
+fPush 15
+Push 14
+Call @GetPlayerName_
+Call @AddOption_
+fPush 16
+Push 15
+Call @GetPlayerName_
+Call @AddOption_
+fPush 17
+Push 16
+Call @GetPlayerNameSctv_
+Call @AddOption_
+fPush 18
+Push 17
+Call @GetPlayerNameSctv_
+Call @AddOption_
+// Option's functions
+Call @CheckAPressed_
+push_1
+JumpEQ @PlayersSubController_
+Jump @EndPlayersSub_
+:PlayersSubController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@PlayersSubPlayer1_][2=@PlayersSubPlayer2_][3=@PlayersSubPlayer3_][4=@PlayersSubPlayer4_][5=@PlayersSubPlayer5_][6=@PlayersSubPlayer6_][7=@PlayersSubPlayer7_][8=@PlayersSubPlayer8_][9=@PlayersSubPlayer9_][10=@PlayersSubPlayer10_][11=@PlayersSubPlayer11_][12=@PlayersSubPlayer12_][13=@PlayersSubPlayer13_][14=@PlayersSubPlayer14_][15=@PlayersSubPlayer15_][16=@PlayersSubPlayer16_][17=@PlayersSubSCTV1_][18=@PlayersSubSCTV2_]
+:PlayersSubPlayer1_
+push_0
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer2_
+push_1
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer3_
+push_2
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer4_
+push_3
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer5_
+push_4
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer6_
+push_5
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer7_
+push_6
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer8_
+push_7
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer9_
+Push 8
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer10_
+Push 9
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer11_
+Push 10
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer12_
+Push 11
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer13_
+Push 12
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer14_
+Push 13
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer15_
+Push 14
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubPlayer16_
+Push 15
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubSCTV1_
+Push 16
+StaticSet2 240
+Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubSCTV2_
+Push 17
+StaticSet2 240
+//Jump @PlayersSubSetPedANDLoadPlayersA_
+:PlayersSubSetPedANDLoadPlayersA_
+StaticGet2 240
+CallNative "NETWORK_IS_PLAYER_ACTIVE" 1 1
+JumpFalse @EndPlayersSub_
+StaticGet2 240
+CallNative "GET_PLAYER_PED" 1 1
+StaticSet2 241
+// Change Sub to PlayersSubAMenu
+Push 8
+StaticSet1 1
+Call @ChangeSubmenu_
+:EndPlayersSub_
+Return 0 0
+//>
+
+//< PlayersSubAMenu
+:PlayersSubAMenu_
+Function 0 2 0
+fPush_6.0
+StaticSet1 3
+Push 7
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Player Stuff"
+Call @AddInfoBox_
+StaticGet2 240
+CallNative "GET_PLAYER_NAME" 1 1
+StaticSet2 239
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Player Options"
+Call @AddOption_
+fPush_2.0
+PushString "Teleport Options"
+Call @AddOption_
+fPush_3.0
+PushString "Teleport To Coords"
+Call @AddOption_
+fPush_4.0
+PushString "Control Player's Vehicle"
+Call @AddOption_
+fPush_5.0
+PushString "Nice and Naughty Options"
+Call @AddOption_
+fPush_6.0
+PushString "Objects And Attachments"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @PlayersSubAMenuController_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenuController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@PlayersSubAMenu_PlayerSub][2=@PlayersSubAMenu_Teleport][3=@PlayersSubAMenu_TeleportToCoords][4=@PlayersSubAMenu_VehicleControl][5=@PlayersSubAMenu_NiceandNaughty][6=@PlayersSubAMenu_ObjectsAndAttachments]
+:PlayersSubAMenu_PlayerSub
+Push 9
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenu_Teleport
+Push 11
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenu_TeleportToCoords
+Push 12
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenu_VehicleControl
+Push 16
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenu_NiceandNaughty
+Push 18
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:PlayersSubAMenu_ObjectsAndAttachments
+Push 20
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndPlayersSubAMenu_
+:EndPlayersSubAMenu_
+Return 0 0
+//>
+
+//< Network Player Options
+:Network_PlayerSub_
+Function 0 2 0
+fPush 12
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Player Modifications"
+Call @AddInfoBox_
+PushString "Player Options"
+Call @AddTitle_
+fPush_1.0
+PushString "Teleport to Player"
+Call @AddOption_
+fPush_2.0
+PushString "Forcefeild (Loop)"
+Call @AddOption_
+fPush_3.0
+PushString "Mess Up Their Screen!"
+Call @AddOption_
+fPush_4.0
+PushString "Water Hydrant (Loop)"
+Call @AddOption_
+fPush_5.0
+PushString "Flame (Loop)"
+Call @AddOption_
+fPush_6.0
+PushString "Empty"
+Call @AddOption_
+fPush_7.0
+PushString "Clear Tasks"
+Call @AddOption_
+fPush 8
+PushString "Trap in Cage"
+Call @AddOption_
+fPush 9
+PushString "Attach Beach-Fire To Player"
+Call @AddOption_
+fPush 10
+PushString "Attach Crap To Player"
+Call @AddOption_
+fPush 11
+PushString "Freeze Player's Console"
+Call @AddOption_
+fPush 12
+PushString "Explosions List ---------"
+Call @AddOption_
+//Highlight
+//The info box is not just limited to a whole submenu. You can display it on an option highlight as well.
+Call @CheckAPressed_
+push_1
+JumpEQ @NetworkPlayersOptionsController_
+Jump @EndNetwork_PlayerSub_
+:NetworkPlayersOptionsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Sub6Op1_][2=@Forcefeild_][3=@ExplosionLoop_][4=@HydrantLoop_][5=@FlameLoop_][6=@40kMoneyLoop1_][7=@ClearTasks_][8=@TrapInCage_][9=@NetworkAttachBeachFire_][10=@NetworkAttachDogCrap_][11=@ClonePlayer_][12=@NetworkExplosions_]
+:Sub6Op1_
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndNetwork_PlayerSub_
+:Forcefeild_
+StaticGet1 10
+Push1 17
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @ForcefeildOn_
+pStatic1 10
+Push1 17
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:ForcefeildOn_
+pStatic1 10
+Push1 17
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:ExplosionLoop_
+StaticGet1 10
+Push1 19
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @ExplosionLoopOn_
+pStatic1 10
+Push1 19
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:ExplosionLoopOn_
+pStatic1 10
+Push1 19
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:HydrantLoop_
+StaticGet1 10
+Push1 20
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @HydrantLoopOn_
+pStatic1 10
+Push1 20
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:HydrantLoopOn_
+pStatic1 10
+Push1 20
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:FlameLoop_
+StaticGet1 10
+Push1 21
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @FlameLoopOn_
+pStatic1 10
+Push1 21
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:FlameLoopOn_
+pStatic1 10
+Push1 21
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:40kMoneyLoop1_
+push_0
+CallNative "WAIT" 1 0
+StaticGet2 460
+Add1 1
+StaticSet2 460
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 4000000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 400000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+StaticGet2 460
+Push1 8
+Jump @EndNetwork_PlayerSub_
+:ClearTasks_
+StaticGet1 10
+Push1 23
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @ClearTasksOn_
+pStatic1 10
+Push1 23
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:ClearTasksOn_
+pStatic1 10
+Push1 23
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_PlayerSub_
+:TrapInCage_
+PushString "prop_gold_cont_01"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_PlayerSub_
+:NetworkAttachBeachFire_
+push_0
+StaticSet1 23
+:NetworkAttachBeachFireOn_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_beach_fire"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push1 5
+JumpLE @NetworkAttachBeachFireOn_
+Jump @EndNetwork_PlayerSub_
+:NetworkAttachDogCrap_
+push_0
+StaticSet1 23
+:NetworkAttachDogCrapOn_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_big_shit_02"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+PushS 50
+JumpLE @NetworkAttachDogCrapOn_
+Jump @EndNetwork_PlayerSub_
+:ClonePlayer_
+push_0
+StaticSet1 23
+:CloneNow_
+PushS 300
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+StaticGet2 241
+push_1
+push_1
+push_1
+CallNative "CLONE_PED" 4 1
+Drop
+StaticGet1 23
+Push1 25
+JumpLE @CloneNow_
+Jump @EndNetwork_PlayerSub_
+:NetworkExplosions_
+Push 10
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_PlayerSub_
+:EndNetwork_PlayerSub_
+Return 0 0
+//>
+//<      Network Player Sub Explosions Sub
+:Network_ExplosionSub
+Function 0 2 0
+fPush 16
+StaticSet1 3
+Push 9
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "-----Explosions Page (1)-----"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Barrel"
+Call @AddOption_
+fPush_2.0
+PushString "Bike"
+Call @AddOption_
+fPush_3.0
+PushString "Blimp"
+Call @AddOption_
+fPush_4.0
+PushString "Boat"
+Call @AddOption_
+fPush_5.0
+PushString "Bullet"
+Call @AddOption_
+fPush_6.0
+PushString "BZGas"
+Call @AddOption_
+fPush_7.0
+PushString "Car"
+Call @AddOption_
+fPush 8
+PushString "DIR_FLAME"
+Call @AddOption_
+fPush 9
+PushString "DIR_FLAME_EXPLODE"
+Call @AddOption_
+fPush 10
+PushString "DIR_GAS_CANISTER"
+Call @AddOption_
+fPush 11
+PushString "DIR_STEAM"
+Call @AddOption_
+fPush 12
+PushString "DIR_WATER_HYDRANT"
+Call @AddOption_
+fPush 13
+PushString "Extinguisher"
+Call @AddOption_
+fPush 14
+PushString "Firework"
+Call @AddOption_
+fPush 15
+PushString "Flare"
+Call @AddOption_
+fPush 16
+PushString "Page (2)"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_ExplosionSubController
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSubController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Network_ExplosionSub_Barrel][2=@Network_ExplosionSub_Bike][3=@Network_ExplosionSub_Blimp][4=@Network_ExplosionSub_Boat][5=@Network_ExplosionSub_Bullet][6=@Network_ExplosionSub_Bzgas][7=@Network_ExplosionSub_Car][8=@Network_ExplosionSub_DIR_FLAME][9=@Network_DIR_FLAME_EXPLODE][10=@Network_DIR_GAS_CANISTER][11=@Network_ExplosionSub_DIR_STEAM][12=@Network_ExplosionSub_DIR_WATER_HYDRANT][13=@Network_ExplosionSub_EXTINGUISHER][14=@Network_ExplosionSub_FIREWORK][15=@Network_ExplosionSub_FLARE][16=@Network_ExplosionSub_Page2]
+:Network_ExplosionSub_Barrel
+StaticGet2 241
+Push 27
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 27
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Bike
+StaticGet2 241
+Push 10
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 5
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Blimp
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 29
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Boat
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 15
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Bullet
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 18
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Bzgas
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 21
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Car
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_7
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_DIR_FLAME
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 12
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_DIR_FLAME_EXPLODE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 30
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_DIR_GAS_CANISTER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 14
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_DIR_STEAM
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 11
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_DIR_WATER_HYDRANT
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 13
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_EXTINGUISHER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 24
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_FIREWORK
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 36
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_FLARE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 22
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_ExplosionSub_
+:Network_ExplosionSub_Page2
+Push 13
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_ExplosionSub_
+:EndNetwork_ExplosionSub_
+Return 0 0
+//<      Network Player Sub Explosions Sub
+:Network_Explosion2Sub
+Function 0 2 0
+fPush 15
+StaticSet1 3
+Push 10
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "-----Explosions Page (2)-----"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Gas Canister"
+Call @AddOption_
+fPush_2.0
+PushString "Gas Tank"
+Call @AddOption_
+fPush_3.0
+PushString "Grenade"
+Call @AddOption_
+fPush_4.0
+PushString "Grenade Launcher"
+Call @AddOption_
+fPush_5.0
+PushString "Hi Octane"
+Call @AddOption_
+fPush_6.0
+PushString "Molotov"
+Call @AddOption_
+fPush_7.0
+PushString "Petrol Pump"
+Call @AddOption_
+fPush 8
+PushString "Plane"
+Call @AddOption_
+fPush 9
+PushString "Plane Rocket"
+Call @AddOption_
+fPush 10
+PushString "Programmablear"
+Call @AddOption_
+fPush 11
+PushString "Propane"
+Call @AddOption_
+fPush 12
+PushString "Rocket"
+Call @AddOption_
+fPush 13
+PushString "Ship Destroy"
+Call @AddOption_
+fPush 14
+PushString "Smoke Grenade"
+Call @AddOption_
+fPush 15
+PushString "Page (3)"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_ExplosionSub2Controller
+Jump @EndNetwork_Explosion2Sub_
+:Network_ExplosionSub2Controller
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Network_Explosion2Sub_GAS_CANISTER][2=@Network_Explosion2Sub_GAS_TANK][3=@Network_Explosion2Sub_GRENADE][4=@Network_Explosion2Sub_GRENADELAUNCHER][5=@Network_Explosion2Sub_HI_OCTANE][6=@Network_Explosion2Sub_MOLOTOV][7=@Network_Explosion2Sub_PETROL_PUMP][8=@Network_Explosion2Sub_PLANE][9=@Network_Explosion2Sub_PLANE_ROCKET][10=@Network_Explosion2Sub_PROGRAMMABLEAR][11=@Network_Explosion2Sub_PROPANE][12=@Network_Explosion2Sub_ROCKET][13=@Network_Explosion2Sub_SHIP_DESTROY][14=@Network_Explosion2Sub_SMOKEGRENADE][15=@Network_ExplosionSub_Page3]
+:Network_Explosion2Sub_GAS_CANISTER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 34
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_GAS_TANK
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 34
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_GRENADE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_GRENADELAUNCHER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_HI_OCTANE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_6
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_MOLOTOV
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_3
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_PETROL_PUMP
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 9
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_PLANE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 8
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_PLANE_ROCKET
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 32
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_PROGRAMMABLEAR
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 25
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_PROPANE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 28
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_ROCKET
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_4
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_SHIP_DESTROY
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 16
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_Explosion2Sub_SMOKEGRENADE
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 20
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion2Sub_
+:Network_ExplosionSub_Page3
+Push 14
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_Explosion2Sub_
+:EndNetwork_Explosion2Sub_
+Return 0 0
+
+:Network_Explosion3Sub
+Function 0 2 0
+fPush 9
+StaticSet1 3
+Push 13
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "-----Explosions Page (3)-----"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Smoke Grenade Launcher"
+Call @AddOption_
+fPush_2.0
+PushString "Steam"
+Call @AddOption_
+fPush_3.0
+PushString "Sticky Bomb"
+Call @AddOption_
+fPush_4.0
+PushString "Tanker"
+Call @AddOption_
+fPush_5.0
+PushString "Tank Shell"
+Call @AddOption_
+fPush_6.0
+PushString "Train"
+Call @AddOption_
+fPush_7.0
+PushString "Truck"
+Call @AddOption_
+fPush 8
+PushString "Vehicle Bullet"
+Call @AddOption_
+fPush 9
+PushString "Invisible Explosion"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_ExplosionSub3Controller
+Jump @EndNetwork_Explosion3Sub_
+:Network_ExplosionSub3Controller
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Network_Explosion3Sub_SMOKEGRENADELAUNCHER][2=@Network_Explosion3Sub_STEAM][3=@Network_Explosion3Sub_STICKYBOMB][4=@Network_Explosion3Sub_TANKER][5=@Network_Explosion3Sub_TANKSHELL][6=@Network_Explosion3Sub_TRAIN][7=@Network_Explosion3Sub_TRUCK][8=@Network_Explosion3Sub_VEHICLE_BULLET][9=@Network_Explosion3Sub_Invisible_Explosion]
+:Network_Explosion3Sub_SMOKEGRENADELAUNCHER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 19
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_STEAM
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 35
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_STICKYBOMB
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_2
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_TANKER
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 31
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_TANKSHELL
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 5
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_TRAIN
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 26
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_TRUCK
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 17
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_VEHICLE_BULLET
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 33
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:Network_Explosion3Sub_Invi sible_Explosion
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push 29
+fPush 20
+push_0
+push_1
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_Explosion3Sub_
+:EndNetwork_Explosion3Sub_
+Return 0 0
+//>
+//< Network Teleport Sub
+:Network_TeleportOptions_
+Function 0 2 0
+fPush_7.0
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Teleport Options"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Teleport Player To You"
+Call @AddOption_
+fPush_2.0
+PushString "Teleport to Player"
+Call @AddOption_
+fPush_3.0
+PushString "Attach Self To Player"
+Call @AddOption_
+fPush_4.0
+PushString "Detach Self From Player"
+Call @AddOption_
+fPush_5.0
+PushString "PiggyBack Ride"
+Call @AddOption_
+fPush_6.0
+PushString "Teleport Into Their Vehicle"
+Call @AddOption_
+fPush_7.0
+PushString "Teleport Player To Waypoint"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_TeleportOptions_SubController
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_SubController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@Network_TeleportPlayerToYou][2=@Network_TeleportToPlayer][3=@Network_TeleportOptions_AttachYourSelf][4=@Network_TeleportOptions_DetachYourSelf][5=@Network_PlayerSub_Piggyback][6=@Network_TeleportOptions_IntoTheirVehicle][7=@Network_TeleportOptions_Waypoint]
+:Network_TeleportPlayerToYou
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_TeleportOptions_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Teleported Player To You."
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportToPlayer
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_AttachYourSelf
+StaticGet2 241
+CallNative "PLAYER_PED_ID" 0 1
+JumpEQ @Network_TeleportOptions_CantTeleportSelf
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 241
+fPush 0.059999998658895
+fPush_0.0
+fPush -0.25
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_DetachYourSelf
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+push_1
+CallNative "DETACH_ENTITY" 3 0
+Jump @EndNetwork_TeleportOptions_
+:Network_PlayerSub_Piggyback
+StaticGet1 241
+CallNative "PLAYER_PED_ID" 0 1
+JumpEQ @Network_CantDoThatToYourself
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "IS_ENTITY_ATTACHED" 1 1
+JumpFalse @PiggybackON_
+PushString "Thanks for the ride!"
+PushS 2500
+Call @PrintStringBottomCentre_
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+push_1
+CallNative "DETACH_ENTITY" 3 0
+CallNative "PLAYER_PED_ID" 0 1
+CallNative "CLEAR_PED_TASKS_IMMEDIATELY" 1 0
+Jump @EndNetwork_TeleportOptions_
+:PiggybackON_
+PushString "Piggyback Ride ~r~On"
+PushS 2500
+Call @PrintStringBottomCentre_
+PushString "Piggyback Ride Initiated"
+Call @PrintBottomLeft_
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 241
+fPush -1
+fPush_0.0
+fPush -0.3
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+PushString "mini@prostitutes@sexnorm_veh"
+CallNative "REQUEST_ANIM_DICT" 1 0
+Push 200
+CallNative "WAIT" 1 0
+CallNative "PLAYER_PED_ID" 0 1
+PushString "mini@prostitutes@sexnorm_veh"
+PushString "bj_loop_male"
+fPush 8.0
+fPush_0.0
+push_-1
+Push 9
+push_0
+push_0
+push_0
+push_0
+CallNative "TASK_PLAY_ANIM" 11 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_IntoTheirVehicle
+StaticGet2 241
+CallNative "PLAYER_PED_ID" 0 1
+JumpEQ @Network_TeleportOptions_CantTeleportSelf
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_TeleportOptions_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @FindFreeCarSeat_
+StaticSet2 479
+CallNative "PLAYER_PED_ID" 0 1
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticGet2 479
+CallNative "SET_PED_INTO_VEHICLE" 3 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_Waypoint
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+CallNative "IS_WAYPOINT_ACTIVE" 0 1
+JumpFalse @Network_TeleportOptions_WPNotActive
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+Push 8
+CallNative "GET_FIRST_BLIP_INFO_ID" 1 1
+CallNative "GET_BLIP_COORDS" 1 3
+push_3
+pStatic2 497
+FromStack
+push_3
+pStatic2 497
+ToStack
+pStatic2 485
+CallNative "GET_GROUND_Z_FOR_3D_COORD" 4 1
+Drop
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+pStatic2 497
+GetImmediate1 0
+pStatic2 497
+GetImmediate1 1
+pStatic2 485
+GetImmediate1 0
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_NotInVehicle
+PushString "~r~Error:~s~ Player's not in a vehicle."
+PushS 2500
+Call @PrintStringBottomCentre_
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_WPNotActive
+PushString "~r~Error:~s~ A *waypoint* is missing."
+PushS 2500
+Call @PrintStringBottomCentre_
+Jump @EndNetwork_TeleportOptions_
+:Network_TeleportOptions_CantTeleportSelf
+PushString "~r~Error:~s~ Teleporting to yourself? -_-."
+PushS 2000
+Call @PrintStringBottomCentre_
+:Network_CantDoThatToYourself
+PushString "~r~Error:~s~ Cannot be invoked on Self."
+PushS 2000
+Call @PrintStringBottomCentre_
+:EndNetwork_TeleportOptions_
+Return 0 0
+//< Network Player Options
+:OnlinePlayersA_TeleportToCoords_
+Function 0 2 0
+fPush 15
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Teleport Player To Coords"
+Call @AddInfoBox_
+PushString "Locations"
+Call @AddTitle_
+fPush_1.0
+PushString "Ocean Coast's Cave"
+Call @AddOption_
+fPush_2.0
+PushString "Crane (Scenic View)"
+Call @AddOption_
+fPush_3.0
+PushString "Far Island With Flowers"
+Call @AddOption_
+fPush_4.0
+PushString "Maze Bank, City Helipad"
+Call @AddOption_
+fPush_5.0
+PushString "Waterfall Watching"
+Call @AddOption_
+fPush_6.0
+PushString "Canyon, Train Tracks"
+Call @AddOption_
+fPush_7.0
+PushString "Mt. Chiliad"
+Call @AddOption_
+fPush 8
+PushString "Mt. Chiliad (Scenic View)"
+Call @AddOption_
+fPush 9
+PushString "Above the Clouds"
+Call @AddOption_
+fPush 10
+PushString "Cannibal Camp"
+Call @AddOption_
+fPush 11
+PushString "Bottom of Ocean"
+Call @AddOption_
+fPush 12
+PushString "500K Apartment (Outside)"
+Call @AddOption_
+fPush 13
+PushString "Stuck In the Ocean"
+Call @AddOption_
+fPush 14
+PushString "Tunnel Loop"
+Call @AddOption_
+fPush 15
+PushString "Fort Zancudo"
+Call @AddOption_
+//Highlight
+//The info box is not just limited to a whole submenu. You can display it on an option highlight as well.
+Call @CheckAPressed_
+push_1
+JumpEQ @OnlinePlayersA_TeleportToCoordsController_
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:OnlinePlayersA_TeleportToCoordsController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@TeleportToCoords1_][2=@TeleportToCoords2_][3=@TeleportToCoords3_][4=@TeleportToCoords4_][5=@TeleportToCoords5_][6=@TeleportToCoords6_][7=@TeleportToCoords7_][8=@TeleportToCoords8_][9=@TeleportToCoords9_][10=@TeleportToCoords10_][11=@TeleportToCoords11_][12=@TeleportToCoords12_][13=@TeleportToCoords13_][14=@TeleportToCoords14_][15=@TeleportToCoords15_]
+:TeleportToCoords1_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush 3062.855
+fPush 2214.975
+fPush 3.381231
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords2_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -119.859985
+fPush -976.43866
+fPush 306.3385
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords3_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -125.6544
+fPush 7271.8940
+fPush 16.7366
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords4_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -74.94243
+fPush -818.63446
+fPush 326.174347
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords5_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -540.4822
+fPush 4402.3590
+fPush 34.3786
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords6_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -530.6747
+fPush 4534.9960
+fPush 89.0457
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords7_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush 489.3171
+fPush 5580.8870
+fPush 792.8515
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords8_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush 413.4706
+fPush 5572.8210
+fPush 779.6819
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords9_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -73.4489
+fPush -833.5170
+fPush 5841.4240
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords10_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -1170.1150
+fPush 4926.1340
+fPush 224.3552
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords11_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush 103.4720
+fPush 7744.1870
+fPush -158.1106
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords12_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -795.4600
+fPush 308.8900
+fPush 85.7100
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords13_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush 5314.23
+fPush -5211.83
+fPush 83.52
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords14_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -4.5786
+fPush -742.4279
+fPush 16.5030
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:TeleportToCoords15_
+StaticGet2 241
+getF1 0
+CallNative "GET_PLAYER_PED" 1 1
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @Network_TeleportOptions_NotInVehicle
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+fPush -2450.46
+fPush 3148.99
+fPush 32.82
+push_1
+push_0
+push_0
+push_1
+CallNative "SET_ENTITY_COORDS" 8 0
+Jump @EndOnlinePlayersA_TeleportToCoords_
+:NotInVehicle_
+PushString "~r~Error:~s~ Get in a vehicle first."
+PushS 2500
+Call @PrintStringBottomCentre_
+:EndOnlinePlayersA_TeleportToCoords_
+Return 0 0
+
+//< Network Vehicle Control Options
+:Network_VehicleSub
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Control Player's Vehicles"
+Call @AddInfoBox_
+PushString "Vehicle Control"
+Call @AddTitle_
+fPush_1.0
+PushString "Paint Chrome"
+Call @AddOption_
+fPush_2.0
+PushString "Paint Pure-Gold"
+Call @AddOption_
+fPush_3.0
+PushString "Paint Brushed Gold"
+Call @AddOption_
+fPush_4.0
+PushString "Paint Secret Gold"
+Call @AddOption_
+fPush_5.0
+PushString "Paint Chrome-Pure Gold"
+Call @AddOption_
+fPush_6.0
+PushString "Paint Pure Gold-Chrome"
+Call @AddOption_
+fPush_7.0
+PushString "Paint Chrome-Brushed Gold"
+Call @AddOption_
+fPush 8
+PushString "Paint Brushed Gold-Chrome"
+Call @AddOption_
+fPush 9
+PushString "Paint Chrome-Secret Gold"
+Call @AddOption_
+fPush 10
+PushString "Paint Secret Gold-Chrome"
+Call @AddOption_
+fPush 11
+PushString "Paint Hot Pink (Troll)"
+Call @AddOption_
+fPush 12
+PushString "Paint Chrome-Candy Red"
+Call @AddOption_
+fPush 13
+PushString "Paint Random"
+Call @AddOption_
+fPush 14
+PushString "--- Page 2 ---"
+Call @AddOption_
+//Highlight
+//The info box is not just limited to a whole submenu. You can display it on an option highlight as well.
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_VehicleSubController_
+Jump @EndNetwork_VehicleSub
+:Network_VehicleSubController_
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@VehicleSubOp1_][2=@VehicleSubOp2_][3=@VehicleSubOp3_][4=@VehicleSubOp4_][5=@VehicleSubOp5_][6=@VehicleSubOp6_][7=@VehicleSubOp7_][8=@VehicleSubOp8_][9=@VehicleSubOp9_][10=@VehicleSubOp10_][11=@VehicleSubOp11_][12=@VehicleSubOp12_][13=@VehicleSubOp13_][14=@VehicleSub2_]
+:VehicleSubOp1_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Painted Players Vehicle Chrome"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 120
+Push 120
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp2_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Painted Players Vehicle Pure-Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 158
+Push 158
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp3_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Painted Players Vehicle Brushed-Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 159
+Push 159
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp4_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Secret Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 160
+Push 160
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp5_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Chrome-Pure Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 158
+Push 120
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp6_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Pure Gold-Chrome"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 120
+Push 158
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp7_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Chrome-Brushed Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 120
+Push 159
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp8_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Brushed Gold-Chrome"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 159
+Push 120
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp9_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Chrome-Secret Gold"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 120
+Push 160
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp10_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Secret Gold-Chrome"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 160
+Push 120
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp11_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Hot Pink"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 135
+Push 135
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp12_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Changed to Chrome-Candy Red"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Push 120
+Push 35
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSubOp13_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Painted Players Vehicle Random"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+push_0
+Push 157
+CallNative "GET_RANDOM_INT_IN_RANGE" 2 1
+CallNative "SET_VEHICLE_COLOURS" 3 0
+Jump @EndNetwork_VehicleSub
+:VehicleSub2_
+Push 17
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_VehicleSub
+:EndNetwork_VehicleSub
+Return 0 0
+//>
+//<      Network Control Vehicle Sub 2
+:Network_VehicleSub2
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 16
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "--- Vehicle Control Page 2 ---"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Sky-Rocket Player!"
+Call @AddOption_
+fPush_2.0
+PushString "Super Sky-Rocket Player!"
+Call @AddOption_
+fPush_3.0
+PushString "Super Launch Forward!"
+Call @AddOption_
+fPush_4.0
+PushString "Super Launch Backwards!"
+Call @AddOption_
+fPush_5.0
+PushString "Delete Player's Vehicle"
+Call @AddOption_
+fPush_6.0
+PushString "Empty"
+Call @AddOption_
+fPush_7.0
+PushString "Empty"
+Call @AddOption_
+fPush 8
+PushString "Empty"
+Call @AddOption_
+fPush 9
+PushString "Empty"
+Call @AddOption_
+fPush 10
+PushString "Empty"
+Call @AddOption_
+fPush 11
+PushString "Empty"
+Call @AddOption_
+fPush 12
+PushString "Empty"
+Call @AddOption_
+fPush 13
+PushString "Empty"
+Call @AddOption_
+fPush 14
+PushString "Empty"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_VehicleSub2Controller
+Jump @EndNetwork_VehicleSub2
+:Network_VehicleSub2Controller
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@VehicleSub2Op1_][2=@VehicleSub2Op2_][3=@VehicleSub2Op3_][4=@VehicleSub2Op4_][5=@VehicleSub2Op5_][6=@VehicleSub2Op6_][7=@VehicleSub2Op7_][8=@VehicleSub2Op8_][9=@VehicleSub2Op9_][10=@VehicleSub2Op10_][11=@VehicleSub2Op1_][12=@VehicleSub2Op12_][13=@VehicleSub2Op13_][14=@VehicleSub2Op14_]
+:VehicleSub2Op1_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Sky-rocketed Player!"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+push_0
+fPush_0.0
+fPush_0.0
+fPush 999
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op2_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Player Super Sky-rocketed!"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+push_0
+fPush_0.0
+fPush_0.0
+fPush 9999
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op3_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Launched Player Forward!!"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+push_0
+fPush_0.0
+fPush 999
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op4_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Launched Player Backwards!!"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+push_0
+fPush_0.0
+fPush -1000
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_1
+CallNative "APPLY_FORCE_TO_ENTITY" 14 0
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op5_
+StaticGet2 241
+push_0
+CallNative "IS_PED_IN_ANY_VEHICLE" 2 1
+JumpFalse @EndNetwork_VehicleSub2
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+Call @RequestControlOfVeh_
+PushString "Deleted Players Vehicle"
+PushS 2500
+Call @MsgStuff_
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticSet2 65
+StaticGet2 65
+push_1
+push_1
+CallNative "SET_ENTITY_AS_MISSION_ENTITY" 3 0
+pStatic2 65
+CallNative "DELETE_VEHICLE" 1 0
+push_0
+CallNative "WAIT" 1 0
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op6_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op7_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op8_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op9_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op10_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op11_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op12_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op13_
+Jump @EndNetwork_VehicleSub2
+:VehicleSub2Op14_
+Jump @EndNetwork_VehicleSub2
+:EndNetwork_VehicleSub2
+Return 0 0
+//<      Network Nice Options
+:Network_NiceandNaughty
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "--- Nice Options! ---"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Give Health"
+Call @AddOption_
+fPush_2.0
+PushString "Give Armor"
+Call @AddOption_
+fPush_3.0
+PushString "Empty"
+Call @AddOption_
+fPush_4.0
+PushString "Empty"
+Call @AddOption_
+fPush_5.0
+PushString "Empty"
+Call @AddOption_
+fPush_6.0
+PushString "Empty"
+Call @AddOption_
+fPush_7.0
+PushString "Empty"
+Call @AddOption_
+fPush 8
+PushString "Empty"
+Call @AddOption_
+fPush 9
+PushString "Empty"
+Call @AddOption_
+fPush 10
+PushString "Empty"
+Call @AddOption_
+fPush 11
+PushString "Empty"
+Call @AddOption_
+fPush 12
+PushString "Empty"
+Call @AddOption_
+fPush 13
+PushString "Empty"
+Call @AddOption_
+fPush 14
+PushString "--- Naughty Options ---"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_NiceandNaughtyController
+Jump @EndNetwork_NiceandNaughty
+:Network_NiceandNaughtyController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@NiceOp1_][2=@NiceOp2_][3=@ExtremeCashDrop_][4=@NiceOp4_][5=@NiceOp5_][6=@NiceOp6_][7=@NiceOp7_][8=@NiceOp8_][9=@NiceOp9_][10=@NiceOp10_][11=@NiceOp11_][12=@NiceOp12_][13=@NiceOp13_][14=@NaughtySubMenu_]
+:NiceOp1_
+PushString "Restored Player's Health"
+PushS 2500
+Call @MsgStuff_
+Push -1888453608
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 100000
+push_1
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+Jump @EndNetwork_NiceandNaughty
+:NiceOp2_
+PushString "Given Armor to Player"
+PushS 2500
+Call @MsgStuff_
+Push 1274757841
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 100000
+push_1
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+Jump @EndNetwork_NiceandNaughty
+:ExtremeCashDrop_
+push_0
+CallNative "WAIT" 1 0
+StaticGet2 460
+Add1 1
+StaticSet2 460
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+pGlobal3 2407802
+GetImmediate2 4113
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_0
+Push 40000
+pGlobal3 2407802
+GetImmediate2 4113
+push_0
+push_1
+CallNative "CREATE_AMBIENT_PICKUP" 9 1
+Drop
+Jump @EndNetwork_NiceandNaughty
+:NiceOp4_
+StaticGet1 10
+Push1 22
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @NiceOp4On_
+pStatic1 10
+Push1 22
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_NiceandNaughty
+:NiceOp4On_
+pStatic1 10
+Push1 22
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_NiceandNaughty
+:NiceOp5_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp6_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp7_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp8_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp9_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp10_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp11_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp12_
+Jump @EndNetwork_NiceandNaughty
+:NiceOp13_
+Jump @EndNetwork_NiceandNaughty
+:NaughtySubMenu_
+Push 19
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_NiceandNaughty
+:EndNetwork_NiceandNaughty
+Return 0 0
+//<      Network Naughty Options
+:Network_NaughtyOptions
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 18
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "--- Naughty Options! ---"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Remove + Disable Weapons"
+Call @AddOption_
+fPush_2.0
+PushString "Clear Player's Tasks"
+Call @AddOption_
+fPush_3.0
+PushString "Delete Vehicle (Loop)"
+Call @AddOption_
+fPush_4.0
+PushString "Multi Explosion"
+Call @AddOption_
+fPush_5.0
+PushString "Empty"
+Call @AddOption_
+fPush_6.0
+PushString "Empty"
+Call @AddOption_
+fPush_7.0
+PushString "Empty"
+Call @AddOption_
+fPush 8
+PushString "Empty"
+Call @AddOption_
+fPush 9
+PushString "Empty"
+Call @AddOption_
+fPush 10
+PushString "Empty"
+Call @AddOption_
+fPush 11
+PushString "Empty"
+Call @AddOption_
+fPush 12
+PushString "Empty"
+Call @AddOption_
+fPush 13
+PushString "Empty"
+Call @AddOption_
+fPush 14
+PushString "Empty"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_NaughtyOptionsController
+Jump @EndNetwork_NaughtyOptions
+:Network_NaughtyOptionsController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@NaughtyOp1_][2=@ClearTasks2_][3=@DeleteVehicleLoop_][4=@MultiExplosion_][5=@NaughtyOp5_][6=@NaughtyOp6_][7=@NaughtyOp7_][8=@NaughtyOp8_][9=@NaughtyOp9_][10=@NaughtyOp10_][11=@NaughtyOp11_][12=@NaughtyOp12_][13=@NaughtyOp13_][14=@NaughtyOp14_]
+:NaughtyOp1_
+StaticGet2 241
+push_1
+CallNative "REMOVE_ALL_PED_WEAPONS" 2 0
+StaticGet2 241
+Push 148160082
+Push 9999
+Push 1
+CallNative "GIVE_DELAYED_WEAPON_TO_PED" 4 0
+Jump @EndNetwork_NaughtyOptions
+:ClearTasks2_
+StaticGet1 10
+Push1 23
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @ClearTasks2On_
+pStatic1 10
+Push1 23
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_NaughtyOptions
+:ClearTasks2On_
+pStatic1 10
+Push1 23
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_NaughtyOptions
+:DeleteVehicleLoop_
+StaticGet1 10
+Push1 27
+CallNative "IS_BIT_SET" 2 1
+JumpFalse @DeleteVehicleLoopOn_
+pStatic1 10
+Push1 27
+CallNative "CLEAR_BIT" 2 0
+Jump @EndNetwork_NaughtyOptions
+:DeleteVehicleLoopOn_
+pStatic1 10
+Push1 27
+CallNative "SET_BIT" 2 0
+Jump @EndNetwork_NaughtyOptions
+:MultiExplosion_
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_2
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_2
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_3
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 3
+fPush_3.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_4
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_4
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_5
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_5
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_6
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_6
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_7
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 7
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_8
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 8
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_9
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 9
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_10
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 10
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_11
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 11
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_12
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 12
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_13
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 13
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_14
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 14
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_15
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 15
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_16
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 16
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_17
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 17
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_18
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 18
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_19
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 19
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_20
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 20
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_21
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 21
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_22
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 22
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_23
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 23
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_24
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 24
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_25
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 25
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_26
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 26
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_27
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 27
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_28
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 28
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_29
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 29
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_30
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 30
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_31
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 31
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_32
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 32
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_33
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 33
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_34
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 34
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_35
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 35
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+:NaughtyOp1_36
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+Push1 36
+fPush_5.0
+push_1
+push_0
+fPush_0.0
+CallNative "ADD_EXPLOSION" 8 0
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp5_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp6_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp7_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp8_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp9_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp10_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp11_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp12_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp13_
+Jump @EndNetwork_NaughtyOptions
+:NaughtyOp14_
+Jump @EndNetwork_NaughtyOptions
+:EndNetwork_NaughtyOptions
+Return 0 0
+//<      Network Object Options
+:Network_ObjectsAndAttachments
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 8
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Objects!"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Boulder"
+Call @AddOption_
+fPush_2.0
+PushString "Trap In Cage"
+Call @AddOption_
+fPush_3.0
+PushString "Giant Sculpture" 
+Call @AddOption_
+fPush_4.0
+PushString "Tv Static"
+Call @AddOption_
+fPush_5.0
+PushString "UFO"
+Call @AddOption_
+fPush_6.0
+PushString "Ferris Wheel"
+Call @AddOption_
+fPush_7.0
+PushString "Tutorial Jet"
+Call @AddOption_
+fPush 8
+PushString "Train Crash"
+Call @AddOption_
+fPush 9
+PushString "Dead Corpse"
+Call @AddOption_
+fPush 10
+PushString "Dog-Crap"
+Call @AddOption_
+fPush 11
+PushString "Fake Cash"
+Call @AddOption_
+fPush 12
+PushString "Ramp"
+Call @AddOption_
+fPush 13
+PushString "Input Object Model"
+Call @AddOption_
+fPush 14
+PushString "Object-Attachments (Page 2)"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_ObjectsAndAttachmentsController
+Jump @EndNetwork_ObjectsAndAttachments
+:Network_ObjectsAndAttachmentsController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@ObjectOp1_][2=@ObjectOp2_][3=@ObjectOp3_][4=@ObjectOp4_][5=@ObjectOp5_][6=@ObjectOp6_][7=@ObjectOp7_][8=@ObjectOp8_][9=@ObjectOp9_][10=@ObjectOp10_][11=@ObjectOp11_][12=@ObjectOp12_][13=@ObjectOp13_][14=@AttachmentsSubMenu_]
+:ObjectOp1_
+PushString "prop_test_boulder_03"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp2_
+PushString "prop_gold_cont_01"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp3_
+PushString "prop_sculpt_fix"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp4_
+PushString "prop_tt_screenstatic"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp5_
+PushString "p_spinning_anus_s"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp6_
+PushString "prop_ld_ferris_wheel"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp7_
+PushString "p_cs_mp_jet_01_s"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp8_
+PushString "p_tram_crash_s"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp9_
+PushString "prop_water_corpse_01"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp10_
+PushString "prop_big_shit_02"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp11_
+PushString "prop_cash_pile_01"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp12_
+PushString "prop_mp_ramp_02"
+GetHash
+CallNative "PLAYER_PED_ID" 0 1
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_0
+push_0
+CallNative "CREATE_OBJECT" 7 1
+CallNative "OBJ_TO_NET" 1 1
+Drop
+Jump @EndNetwork_ObjectsAndAttachments
+:ObjectOp13_
+StaticGet2 241
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @Network_ObjectSub_Custom_OnFoot
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticSet2 481
+Jump @Network_ObjectSub_Custom_Input
+:Network_ObjectSub_Custom_OnFoot
+StaticGet2 241
+StaticSet2 481
+:Network_ObjectSub_Custom_Input
+Push 255
+Call @PromptUser_
+CallNative "GET_HASH_KEY" 1 1
+StaticSet1 12
+:Network_ObjectSub_Custom_DoIt
+StaticGet1 12
+CallNative "REQUEST_MODEL" 1 0
+StaticGet1 12
+CallNative "IS_MODEL_VALID" 1 1
+JumpFalse @Network_ObjectSub_ModelNotValid
+StaticGet1 12
+CallNative "REQUEST_MODEL" 1 0
+StaticGet1 12
+StaticGet2 481
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticSet1 12
+StaticGet1 12
+CallNative "OBJ_TO_NET" 1 1
+Drop
+StaticGet1 12
+StaticGet2 481
+Jump @EndNetwork_ObjectsAndAttachments
+:Network_ObjectSub_ModelNotValid
+PushString "~r~Error:~s~ Incorrect Model."
+PushS 2000
+Call @PrintStringBottomCentre_
+Jump @EndNetwork_ObjectsAndAttachments
+:AttachmentsSubMenu_
+Push 21
+StaticSet1 1
+Call @ChangeSubmenu_
+Jump @EndNetwork_ObjectsAndAttachments
+:EndNetwork_ObjectsAndAttachments
+Return 0 0
+//<      Network Attachments Options
+:Network_Attachments
+Function 0 2 0
+fPush 14
+StaticSet1 3
+Push 20
+StaticSet1 8
+Call @DrawBackground_
+Call @DrawNormalOptionHighlight_
+PushString "Object-Attachments!"
+Call @AddInfoBox_
+StaticGet2 239
+Call @AddTitle_
+fPush_1.0
+PushString "Cover In Dog-Crap"
+Call @AddOption_
+fPush_2.0
+PushString "Cover In Fire"
+Call @AddOption_
+fPush_3.0
+PushString "Attach Boulder"
+Call @AddOption_
+fPush_4.0
+PushString "Katana"
+Call @AddOption_
+fPush_5.0
+PushString "Boxing Glove"
+Call @AddOption_
+fPush_6.0
+PushString "Headset"
+Call @AddOption_
+fPush_7.0
+PushString "Corpse"
+Call @AddOption_
+fPush 8
+PushString "Cowboy Hat"
+Call @AddOption_
+fPush 9
+PushString "Clock"
+Call @AddOption_
+fPush 10
+PushString "Road Cone"
+Call @AddOption_
+fPush 11
+PushString "Snowman"
+Call @AddOption_
+fPush 12
+PushString "Screen Static"
+Call @AddOption_
+fPush 13
+PushString "Input Object Model"
+Call @AddOption_
+fPush 14
+PushString "Empty"
+Call @AddOption_
+// Option's Functions
+Call @CheckAPressed_
+push_1
+JumpEQ @Network_AttachmentsController
+Jump @EndNetwork_Attachments
+:Network_AttachmentsController
+PushString "SELECT"
+Call @PlayFrontendSound_
+StaticGet1 2
+FtoI
+Switch [1=@AttachmentsOp1_][2=@AttachmentsOp2_][3=@AttachmentsOp3_][4=@AttachmentsOp4_][5=@AttachmentsOp5_][6=@AttachmentsOp6_][7=@AttachmentsOp7_][8=@AttachmentsOp8_][9=@AttachmentsOp9_][10=@AttachmentsOp10_][11=@AttachmentsOp11_][12=@AttachmentsOp12_][13=@AttachmentsOp13_][14=@AttachmentsOp14_]
+:AttachmentsOp1_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+PushString "prop_big_shit_02"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jumpfalse @Crap2_
+:Crap2_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+StaticGet2 241
+PushS 28422
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+PushString "prop_big_shit_02"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.056
+fPush 0.05
+fPush -0.01
+fPush -77.0
+fPush 10.6
+fPush 0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push1 10
+JumpFalse @Crap3_
+:Crap3_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_big_shit_02"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push 10
+Jump @EndNetwork_Attachments
+:AttachmentsOp2_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+PushString "prop_beach_fire"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jumpfalse @Fire2_
+:Fire2_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+StaticGet2 241
+PushS 28422
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+PushString "prop_beach_fire"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.056
+fPush 0.05
+fPush -0.01
+fPush -77.0
+fPush 10.6
+fPush 0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push1 10
+JumpFalse @Fire3_
+:Fire3_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_beach_fire"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push 10
+Jump @EndNetwork_Attachments
+:AttachmentsOp3_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_test_boulder_03"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+StaticGet1 23
+Push 10
+Jump @EndNetwork_Attachments
+:AttachmentsOp4_
+Push -491126417
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 28422
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -491126417
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.056
+fPush 0.05
+fPush -0.01
+fPush -77.0
+fPush 10.6
+fPush 0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp5_
+Push 335898267
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 28422
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push 335898267
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.013
+fPush 0
+fPush -0.04
+fPush 90.0
+fPush 180.0
+fPush -90.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp6_
+Push -409048857
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -409048857
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush 180
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+Jump @EndNetwork_Attachments
+:AttachmentsOp7_
+Push -1240857364
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -1240857364
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush 180
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp8_
+Push -1929385697
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -1929385697
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush 180
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp9_
+Push -346427197
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -346427197
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp10_
+Push -1059647297
+CallNative "REQUEST_MODEL" 1 0
+StaticGet2 241
+PushS 31086
+CallNative "GET_PED_BONE_INDEX" 2 1
+StaticSet1 12
+Push -1059647297
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+StaticGet1 12
+fPush 0.1
+fPush 0.02
+fPush_0.0
+fPush_0.0
+fPush 90.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp11_
+Push -1617412079
+CallNative "REQUEST_MODEL" 1 0
+Push -1617412079
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+fPush -1
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+fPush_0.0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp12_
+push_0
+CallNative "WAIT" 1 0
+StaticGet1 23
+Add1 1
+StaticSet1 23
+PushString "prop_tt_screenstatic"
+GetHash
+StaticGet2 241
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticGet2 241
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:AttachmentsOp13_
+StaticGet2 241
+CallNative "IS_PED_SITTING_IN_ANY_VEHICLE" 1 1
+JumpFalse @Network_ObjectSub_Custom_OnFoot2
+StaticGet2 241
+push_0
+CallNative "GET_VEHICLE_PED_IS_IN" 2 1
+StaticSet2 481
+Jump @Network_ObjectSub_Custom_Input2
+:Network_ObjectSub_Custom_OnFoot2
+StaticGet2 241
+StaticSet2 481
+:Network_ObjectSub_Custom_Input2
+Push 255
+Call @PromptUser_
+CallNative "GET_HASH_KEY" 1 1
+StaticSet1 12
+:Network_ObjectSub_Custom_DoIt2
+StaticGet1 12
+CallNative "REQUEST_MODEL" 1 0
+StaticGet1 12
+CallNative "IS_MODEL_VALID" 1 1
+JumpFalse @Network_ObjectSub_ModelNotValid2
+StaticGet1 12
+CallNative "REQUEST_MODEL" 1 0
+StaticGet1 12
+StaticGet2 481
+push_1
+CallNative "GET_ENTITY_COORDS" 2 3
+push_1
+push_1
+push_0
+CallNative "CREATE_OBJECT" 7 1
+StaticSet1 12
+StaticGet1 12
+CallNative "OBJ_TO_NET" 1 1
+Drop
+StaticGet1 12
+StaticGet2 481
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_0
+push_1
+push_1
+push_0
+push_0
+push_2
+push_1
+CallNative "ATTACH_ENTITY_TO_ENTITY" 15 0
+Jump @EndNetwork_Attachments
+:Network_ObjectSub_ModelNotValid2
+PushString "~r~Error:~s~ Incorrect Model."
+PushS 2000
+Call @PrintStringBottomCentre_
+Jump @EndNetwork_ObjectsAndAttachments
+:AttachmentsOp14_
+Jump @EndNetwork_Attachments
+:EndNetwork_Attachments
+Return 0 0
